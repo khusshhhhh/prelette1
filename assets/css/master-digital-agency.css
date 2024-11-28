@@ -7575,9 +7575,9 @@ section {
   color: var(--secondary);
 }
 .intro-area .highlight-text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  max-width: 131px;
+  max-width: 160px;
   line-height: 1.8;
   padding-bottom: 78px;
 }
@@ -7925,6 +7925,11 @@ section {
   background-color: var(--black);
   color: var(--white);
 }
+
+.counter-area {
+  margin-top: -6rem;
+}
+
 .counter-area-inner {
   border-bottom: 1px solid var(--border);
 }
@@ -8052,8 +8057,108 @@ section {
   background-color: var(--primary);
   width: 30px;
 }
+
+.sector-area {
+  background-color: #ffffff;
+}
+.dark .sector-area {
+  background-color: #171717;
+}
+.sector-area .sector-top-wrapper {
+  padding-bottom: 80px;
+}
+.sector-area .sector-top-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 620px;
+}
+@media only screen and (max-width: 991px) {
+  .sector-area .sector-top-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+.sector-area .sector-top-wrapper .text {
+  padding-bottom: 31px;
+}
+@media only screen and (max-width: 991px) {
+  .sector-area .sector-top-wrapper .text {
+    padding-bottom: 10px;
+  }
+}
+.sector-area .wc-btn-underline {
+  color: var(--primary);
+  text-transform: capitalize;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+.sector-area .sectors-wrapper-box {
+  overflow: hidden;
+}
+.sector-area .sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 -70px;
+  gap: 50px 0;
+}
+@media only screen and (max-width: 1399px) {
+  .sector-area .sectors-grid {
+    margin: 0 -30px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .sector-area .sectors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 991px) {
+  .sector-area .sectors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 575px) {
+  .sector-area .sectors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.sector-area .sector-item {
+  padding: 0 70px;
+  border-inline-start: 1px solid #ece7e4;
+}
+.dark .sector-area .sector-item {
+  border-color: #272727;
+}
+@media only screen and (max-width: 1399px) {
+  .sector-area .sector-item {
+    padding: 0 30px;
+  }
+}
+.sector-area .sector-item .icon {
+  padding-bottom: 48px;
+}
+@media only screen and (max-width: 1199px) {
+  .sector-area .sector-item .icon {
+    padding-bottom: 25px;
+  }
+}
+.sector-area .sector-item .title {
+  padding-bottom: 25px;
+  font-size: 30px;
+}
+@media only screen and (max-width: 1919px) {
+  .sector-area .sector-item .title {
+    font-size: 24px;
+  }
+}
+.sector-area .sector-item .sector-features li {
+  font-size: 22px;
+  color: var(--primary);
+  font-weight: 300;
+  padding-bottom: 15px;
+  list-style: disc;
+  list-style-position: inside;
+}
+
 .service-area {
-  background-color: #faf8f7;
+  background-color: #ffffff;
 }
 .dark .service-area {
   background-color: #171717;
