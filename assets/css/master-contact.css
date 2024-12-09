@@ -7823,8 +7823,15 @@ section {
     gap: 15px;
   }
 }
+
+.contact-area {
+  margin-top: 50px;
+}
+
 .contact-area .section-title {
-  max-width: 850px;
+  max-width: 1000px;
+  text-align: center;
+  margin-inline: auto;
 }
 .contact-area .section-header {
   display: grid;

@@ -14,7 +14,7 @@
   --black-2: #555555;
   --white: #ffffff;
   --white-2: #999999;
-  --action: #ffcd4d;
+  --action: #ff9d00;
 }
 :root .dark {
   --primary: #ffffff;
@@ -3125,9 +3125,9 @@ main {
 h1 {
   font-size: 48px;
 }
-h2 {
+/* h2 {
   font-size: 36px;
-}
+} */
 h3 {
   font-size: 32px;
 }
@@ -7656,24 +7656,26 @@ section {
   }
 }
 .intro-area .intro-content .text {
-  font-size: 24px;
+  font-size: 18px;
   padding-bottom: 50px;
   font-weight: 300;
+  text-align: justify;
 }
 @media only screen and (max-width: 1399px) {
   .intro-area .intro-content .text {
     font-size: 20px;
   }
 }
+
 .intro-area .intro-title {
-  font-size: 129px;
+  font-size: 80px;
   padding-bottom: 18px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 0.92;
 }
 @media only screen and (max-width: 1919px) {
   .intro-area .intro-title {
-    font-size: 89px;
+    font-size: 51px;
   }
 }
 @media only screen and (max-width: 1399px) {
@@ -8061,6 +8063,12 @@ section {
 .sector-area {
   background-color: #ffffff;
 }
+
+.sector-area .section-title {
+  font-size: 45px;
+  padding-top: 45px;
+}
+
 .dark .sector-area {
   background-color: #171717;
 }
@@ -8574,12 +8582,18 @@ section {
 .blog .date.has-left-line:before {
   width: 20px;
 }
+
+.cta-area {
+  text-align: center;
+}
+
 .cta-area .section-content {
   text-align: center;
 }
 .cta-area .section-content .section-title {
-  max-width: 840px;
+  text-align: center;
   margin-inline: auto;
+  font-size: 45px;
 }
 @media only screen and (max-width: 1919px) {
   .cta-area .section-content .section-title {

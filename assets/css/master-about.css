@@ -7701,6 +7701,11 @@ section {
 .copyright-area .footer-nav-list a:hover {
   color: var(--white-2);
 }
+
+.hero-area {
+  margin-bottom: 70px;
+}
+
 .hero-area-inner {
   padding-top: 218px;
   padding-bottom: 133px;
