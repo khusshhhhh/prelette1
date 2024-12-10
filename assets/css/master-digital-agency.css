@@ -3662,7 +3662,7 @@ h6 {
 }
 .header-area.sticky {
   position: fixed !important;
-  background-color: var(--white);
+  background-color: #ffffff;
   z-index: 9999;
 }
 .dark .header-area.sticky {

@@ -8136,6 +8136,7 @@ section {
   max-width: 750px;
   /* text-indent: 60px; */
   text-align: justify;
+  font-weight: 300;
 }
 @media only screen and (max-width: 991px) {
   .hero-area .section-content .text {
