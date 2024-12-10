@@ -7794,16 +7794,23 @@ section {
   .about-area .about-thumb img {
     width: 350px;
   }
-  about-area .welcome-text-main-text {
+  .about-area .welcome-text-main-text {
     display: none;
+  }
+  .about-area .welcome-text-sec-text {
+    margin-top: 50px;
+    font-size: 60px;
   }
 }
 @media only screen and (max-width: 767px) {
   .about-area .about-thumb img {
     width: 250px;
   }
-  about-area .welcome-text-main-text {
+  .about-area .welcome-text-main-text {
     display: none;
+  }
+  .about-area .welcome-text-sec-text {
+    margin-top: 50px;
   }
 }
 .project-area {
@@ -8082,6 +8089,9 @@ section {
 @media only screen and (max-width: 991px) {
   .sector-area .sector-top-wrapper {
     grid-template-columns: 1fr;
+  }
+  .sector-area .section-title {
+    margin-bottom: 30px;
   }
 }
 .sector-area .sector-top-wrapper .text {
