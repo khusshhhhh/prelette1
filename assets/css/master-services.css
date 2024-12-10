@@ -8095,7 +8095,7 @@ section {
   padding-top: 187px;
   display: grid;
   gap: 40px 60px;
-  grid-template-columns: 1fr 630px;
+  grid-template-columns: 1fr 500px;
   justify-content: space-between;
 }
 @media only screen and (max-width: 1919px) {
@@ -8125,6 +8125,7 @@ section {
 }
 .hero-area .section-title {
   margin-top: 40px;
+  font-size: 40px;
 }
 @media only screen and (max-width: 767px) {
   .hero-area .section-title {
@@ -8132,8 +8133,9 @@ section {
   }
 }
 .hero-area .section-content .text {
-  max-width: 300px;
-  text-indent: 60px;
+  max-width: 750px;
+  /* text-indent: 60px; */
+  text-align: justify;
 }
 @media only screen and (max-width: 991px) {
   .hero-area .section-content .text {
@@ -8142,7 +8144,7 @@ section {
   }
 }
 .hero-area .section-content .text-wrapper {
-  margin-inline-start: 140px;
+  /* margin-inline-start: 140px; */
   margin-top: 14px;
 }
 @media only screen and (max-width: 991px) {
