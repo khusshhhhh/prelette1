@@ -7464,9 +7464,9 @@ section {
   display: flex;
   align-items: center;
 }
-.dark .header-area .header__nav {
-  /* background: url("../imgs/shape/header-bg-dark.svg") no-repeat; */
-}
+/* .dark .header-area .header__nav {
+  background: url("../imgs/shape/header-bg-dark.svg") no-repeat;
+} */
 @media only screen and (max-width: 1919px) {
   .header-area .header__nav {
     width: 750px;
