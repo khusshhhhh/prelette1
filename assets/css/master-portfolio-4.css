@@ -3356,10 +3356,6 @@ h1 {
   font-size: 48px;
 }
 
-h2 {
-  font-size: 36px;
-}
-
 h3 {
   font-size: 32px;
 }
@@ -3370,10 +3366,6 @@ h4 {
 
 h5 {
   font-size: 20px;
-}
-
-h6 {
-  font-size: 18px;
 }
 
 @font-face {
@@ -8201,6 +8193,12 @@ FEATURES STYLES 3
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 610px) {
+  .portfolio-area-inner .slide-content h6 {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 1919px) {
   .portfolio-slider .portfolio-pagination {
     height: 80px;
@@ -8216,6 +8214,7 @@ FEATURES STYLES 3
     display: none;
   }
 }
+
 .portfolio-slider .portfolio-pagination .swiper-pagination-bullet {
   width: 30px;
   height: 2px;
