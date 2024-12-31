@@ -9113,3 +9113,8 @@ section {
     transform: translateY(-20px);
   }
 }
+
+.header-area__inner .social-btn a {
+  font-size: 24px;
+  margin-left: 10px;
+}

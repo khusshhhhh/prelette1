@@ -8342,3 +8342,164 @@ section {
     transform: translateY(-20px);
   }
 }
+
+/*NEW SERVICE CSS*/
+
+.hero-area {
+  background-image: url("../imgs/gallery/darkliq.png");
+}
+
+.left-service {
+  width: 65%;
+}
+
+.new-service-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-area .new-service-area {
+  margin-top: 110px;
+  padding: 30px 0;
+}
+
+.left-service h1 {
+  color: #fff;
+  font-size: 90px;
+  line-height: 90px;
+}
+
+.left-service h1 span {
+  color: #ff9d00;
+  font-size: 130px;
+}
+
+.left-service p {
+  color: #bdbdbd;
+  margin: 20px 0;
+}
+
+.left-service .services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 20px;
+}
+
+.left-service .service-box {
+  background-color: #222;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  transition: transform 0.3s, border-color 0.3s;
+  text-align: left;
+}
+
+.left-service .service-box:hover {
+  transform: scale(1.05);
+  border-color: #ff9d00;
+  cursor: pointer;
+}
+
+.left-service .service-box h3 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.left-service .service-box h3 a:hover {
+  color: #fff;
+}
+
+.left-service .service-box p {
+  color: #bdbdbd;
+}
+
+.left-service .service-box h3 a img {
+  width: 26px;
+  margin-left: 16px;
+}
+
+@media (max-width: 1400px) {
+  .left-service {
+    width: 100%;
+  }
+
+  .left-service h1 {
+    font-size: 60px;
+  }
+
+  .left-service .services {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .right-service {
+    display: none;
+  }
+}
+
+@media (max-width: 1260px) {
+  .left-service {
+    width: 100%;
+  }
+
+  .left-service h1 {
+    font-size: 60px;
+  }
+
+  .left-service .services {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .right-service {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .left-service {
+    width: 100%;
+  }
+
+  .left-service h1 {
+    font-size: 60px;
+  }
+
+  .left-service .services {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .right-service {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-service {
+    width: 100%;
+  }
+
+  .left-service h1 {
+    font-size: 60px;
+  }
+
+  .left-service .services {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .right-service {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-service {
+    width: 100%;
+  }
+
+  .left-service h1 {
+    font-size: 60px;
+  }
+
+  .left-service .services {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .right-service {
+    display: none;
+  }
+}

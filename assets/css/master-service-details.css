@@ -8198,9 +8198,7 @@ section {
   font-size: 16px;
 }
 .service-details-area .section-title-box {
-  display: grid;
   gap: 20px 60px;
-  grid-template-columns: 1fr 520px;
   align-items: center;
   margin-top: 46px;
 }
