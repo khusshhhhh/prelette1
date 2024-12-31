@@ -8219,7 +8219,7 @@ section {
 .client-box img {
   opacity: 0.4;
 }
-.service-area .service-top-wrapper {
+/* .service-area .service-top-wrapper {
   padding-bottom: 57px;
 }
 .service-area .service-top-wrapper {
@@ -8297,7 +8297,7 @@ section {
   padding-bottom: 15px;
   list-style: disc;
   list-style-position: inside;
-} /*# sourceMappingURL=master-services.css.map */
+} */
 
 /* Floating Shapes Container */
 .floating-shapes {
