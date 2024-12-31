@@ -160,3 +160,8 @@
     display: none;
   }
 }
+
+.social-btn a {
+  margin-left: 20px;
+  font-size: 22px;
+}
