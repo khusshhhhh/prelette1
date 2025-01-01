@@ -7479,6 +7479,7 @@ section {
     width: auto;
   }
 }
+
 .header-area .header-search {
   cursor: pointer;
 }
@@ -7501,6 +7502,11 @@ section {
 .header-area .main-menu > ul > li > a:hover {
   color: var(--white);
   background-color: var(--black);
+}
+
+.header-area .main-menu > ul > li > a.active-btn {
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .dark .header-area .main-menu > ul > li > a {
