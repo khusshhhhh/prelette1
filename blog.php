@@ -1,18 +1,29 @@
 <?php
+// Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// Include database connection
 include 'db.php';
 
-// Fetch blogs from the database
-$query = "SELECT * FROM blog_posts ORDER BY date DESC";
-$result = $conn->query($query);
+// Fetch featured blogs (limit to 3)
+$query_featured = "SELECT * FROM blog_posts ORDER BY date DESC LIMIT 3";
+$result_featured = $conn->query($query_featured);
 
-if (!$result) {
-  die("Query failed: " . $conn->error);
+if (!$result_featured) {
+  die("Query for featured blogs failed: " . $conn->error);
 }
 
+// Fetch additional blogs (offset 3)
+$query_additional = "SELECT * FROM blog_posts ORDER BY date DESC LIMIT 3 OFFSET 3";
+$result_additional = $conn->query($query_additional);
+
+if (!$result_additional) {
+  die("Query for additional blogs failed: " . $conn->error);
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -329,30 +340,23 @@ if (!$result) {
             <div class="container">
               <div class="featured-post-box">
                 <div class="featured-posts">
-                  <?php
-              // Display featured blogs (limit to 3)
-              $featured = 0;
-              while (($row = $result->fetch_assoc()) !== false && $featured < 3) {
-                  $featured++;
-                  ?>
-                  <article class="blog-box has_fade_anim">
-                    <a href="/<?= $row['slug'] ?>">
-                      <div class="thumb">
-                        <img src="<?= $row['main_image'] ?>" alt="<?= $row['title'] ?>">
-                      </div>
-                      <div class="content">
-                        <div class="content-first">
-                          <h2 class="title">
-                            <?= $row['title'] ?>
-                          </h2>
+                  <?php while ($row = $result_featured->fetch_assoc()): ?>
+                    <article class="blog-box has_fade_anim">
+                      <a href="/<?= $row['slug'] ?>">
+                        <div class="thumb">
+                          <img src="<?= $row['main_image'] ?>" alt="<?= $row['title'] ?>">
                         </div>
-                        <div class="icon">
-                          <i class="fa-solid fa-arrow-right"></i>
+                        <div class="content">
+                          <div class="content-first">
+                            <h2 class="title"><?= $row['title'] ?></h2>
+                          </div>
+                          <div class="icon">
+                            <i class="fa-solid fa-arrow-right"></i>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                  </article>
-                  <?php } ?>
+                      </a>
+                    </article>
+                  <?php endwhile; ?>
                 </div>
               </div>
             </div>
@@ -376,25 +380,18 @@ if (!$result) {
                 <div class="blogs-wrapper-box">
                   <div class="blogs-wrapper has_fade_anim">
                     <?php
-                  // Reset the result pointer for additional blogs
-                  $result->data_seek(3); // Skip first 3 blogs
-                  $index = 1;
-                  while (($row = $result->fetch_assoc()) !== false) {
-                      ?>
-                    <a href="/<?= $row['slug'] ?>">
-                      <div class="blog-box">
-                        <div class="content">
-                          <span class="number">
-                            <?= str_pad($index++, 2, '0', STR_PAD_LEFT) ?>
-                          </span>
-                          <h3 class="title">
-                            <?= $row['title'] ?>
-                          </h3>
-                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                    $index = 1; // Counter for numbering blogs
+                    while ($row = $result_additional->fetch_assoc()): ?>
+                      <a href="/<?= $row['slug'] ?>">
+                        <div class="blog-box">
+                          <div class="content">
+                            <span class="number"><?= str_pad($index++, 2, '0', STR_PAD_LEFT) ?></span>
+                            <h3 class="title"><?= $row['title'] ?></h3>
+                            <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                    <?php } ?>
+                      </a>
+                    <?php endwhile; ?>
                   </div>
                   <div class="pagination-box has_fade_anim">
                     <!-- Pagination (if necessary) -->
