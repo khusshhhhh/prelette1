@@ -1,9 +1,17 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include 'db.php';
 
 // Fetch blogs from the database
 $query = "SELECT * FROM blog_posts ORDER BY date DESC";
 $result = $conn->query($query);
+
+if (!$result) {
+  die("Query failed: " . $conn->error);
+}
+
 ?>
 
 <!DOCTYPE html>
