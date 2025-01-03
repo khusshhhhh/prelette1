@@ -332,7 +332,7 @@ if (!$result) {
                   <?php
               // Display featured blogs (limit to 3)
               $featured = 0;
-              while ($row = $result->fetch_assoc() && $featured < 3) {
+              while (($row = $result->fetch_assoc()) !== false && $featured < 3) {
                   $featured++;
                   ?>
                   <article class="blog-box has_fade_anim">
@@ -379,7 +379,7 @@ if (!$result) {
                   // Reset the result pointer for additional blogs
                   $result->data_seek(3); // Skip first 3 blogs
                   $index = 1;
-                  while ($row = $result->fetch_assoc()) {
+                  while (($row = $result->fetch_assoc()) !== false) {
                       ?>
                     <a href="/<?= $row['slug'] ?>">
                       <div class="blog-box">
