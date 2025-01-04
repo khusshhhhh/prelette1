@@ -1,30 +1,3 @@
-<?php
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Include database connection
-include 'db.php';
-
-// Fetch featured blogs (limit to 3)
-$query_featured = "SELECT * FROM blog_posts ORDER BY date DESC LIMIT 3";
-$result_featured = $conn->query($query_featured);
-
-if (!$result_featured) {
-  die("Query for featured blogs failed: " . $conn->error);
-}
-
-// Fetch additional blogs (offset 3)
-$query_additional = "SELECT * FROM blog_posts ORDER BY date DESC LIMIT 3 OFFSET 3";
-$result_additional = $conn->query($query_additional);
-
-if (!$result_additional) {
-  die("Query for additional blogs failed: " . $conn->error);
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -340,36 +313,66 @@ if (!$result_additional) {
             <div class="container">
               <div class="featured-post-box">
                 <div class="featured-posts">
-                  <?php while ($row = $result_featured->fetch_assoc()): ?>
-                    <article class="blog-box has_fade_anim">
-                      <a href="/<?= $row['slug'] ?>">
-                        <div class="thumb">
-                          <img src="<?= $row['main_image'] ?>" alt="<?= $row['title'] ?>">
+                  <article class="blog-box has_fade_anim">
+                    <a href="blog-details.html">
+                      <div class="thumb">
+                        <img src="assets/imgs/blog/img-s-17.webp" alt="blog image">
+                      </div>
+                      <div class="content">
+                        <div class="content-first">
+                          <h2 class="title">Insights from Industry Leaders</h2>
                         </div>
-                        <div class="content">
-                          <div class="content-first">
-                            <h2 class="title"><?= $row['title'] ?></h2>
-                          </div>
-                          <div class="icon">
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </div>
+                        <div class="icon">
+                          <i class="fa-solid fa-arrow-right"></i>
                         </div>
-                      </a>
-                    </article>
-                  <?php endwhile; ?>
+                      </div>
+                    </a>
+                  </article>
+                  <article class="blog-box has_fade_anim" data-delay="0.30">
+                    <a href="blog-details.html">
+                      <div class="thumb">
+                        <img src="assets/imgs/blog/img-s-18.webp" alt="blog image">
+                      </div>
+                      <div class="content">
+                        <div class="content-first">
+                          <h2 class="title">Building quality</h2>
+                        </div>
+                        <div class="icon">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                  <article class="blog-box has_fade_anim" data-delay="0.45" data-on-scroll="0">
+                    <a href="blog-details.html">
+                      <div class="thumb">
+                        <img src="assets/imgs/blog/img-s-19.webp" alt="blog image">
+                      </div>
+                      <div class="content">
+                        <div class="content-first">
+                          <h2 class="title">Market research</h2>
+                        </div>
+                        <div class="icon">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Blog area start -->
+          <!-- blog area start  -->
           <section class="blog-area">
             <div class="container">
               <div class="blog-area-inner section-spacing">
                 <div class="section-content">
                   <div class="section-title-wrapper">
                     <div class="title-wrapper">
-                      <h2 class="section-title has_fade_anim">Latest Insights at Prelette!</h2>
+                      <h2 class="section-title has_fade_anim">Latest
+                        Insights at
+                        Prelette!</h2>
                     </div>
                   </div>
                   <div class="text-wrapper">
@@ -379,27 +382,77 @@ if (!$result_additional) {
                 </div>
                 <div class="blogs-wrapper-box">
                   <div class="blogs-wrapper has_fade_anim">
-                    <?php
-                    $index = 1; // Counter for numbering blogs
-                    while ($row = $result_additional->fetch_assoc()): ?>
-                      <a href="/<?= $row['slug'] ?>">
-                        <div class="blog-box">
-                          <div class="content">
-                            <span class="number"><?= str_pad($index++, 2, '0', STR_PAD_LEFT) ?></span>
-                            <h3 class="title"><?= $row['title'] ?></h3>
-                            <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
-                          </div>
+                    <a href="blog-details.html">
+                      <div class="blog-box">
+                        <div class="content">
+                          <span class="number">01</span>
+                          <h3 class="title">Mastering Productivity: 10 Proven Strategies for Success Every Day</h3>
+                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                      </a>
-                    <?php endwhile; ?>
+                      </div>
+                    </a>
+                    <a href="blog-details.html">
+                      <div class="blog-box">
+                        <div class="content">
+                          <span class="number">02</span>
+                          <h3 class="title">Exploring the Future of AI and Its Impact Everywhere</h3>
+                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="blog-details.html">
+                      <div class="blog-box">
+                        <div class="content">
+                          <span class="number">03</span>
+                          <h3 class="title">Healthy Eating Habits for a Balanced and Energized Lifestyle</h3>
+                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="blog-details.html">
+                      <div class="blog-box">
+                        <div class="content">
+                          <span class="number">04</span>
+                          <h3 class="title">10 Travel Destinations to Add to Your Bucket List</h3>
+                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="blog-details.html">
+                      <div class="blog-box">
+                        <div class="content">
+                          <span class="number">05</span>
+                          <h3 class="title">Entrepreneurial <br>
+                            journeys</h3>
+                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="blog-details.html">
+                      <div class="blog-box">
+                        <div class="content">
+                          <span class="number">06</span>
+                          <h3 class="title">Business growth <br>
+                            strategies</h3>
+                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                   <div class="pagination-box has_fade_anim">
-                    <!-- Pagination (if necessary) -->
                     <ul class="pagination">
-                      <li><a href="#">01</a></li>
-                      <li><a href="#">02</a></li>
-                      <li><a href="#">03</a></li>
-                      <li><a href="#">04</a></li>
+                      <li>
+                        <a href="#">01</a>
+                      </li>
+                      <li>
+                        <a href="#">02</a>
+                      </li>
+                      <li>
+                        <a href="#">03</a>
+                      </li>
+                      <li>
+                        <a href="#">04</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
