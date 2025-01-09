@@ -22,7 +22,8 @@ $pages = ceil($total / $limit);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form Submissions</title>
+    <title>Prelette | Responses</title>
+    <link rel="icon" type="image/x-icon" href="assets/imgs/logo/fav.png">
     <style>
         table {
             width: 100%;
@@ -42,7 +43,7 @@ $pages = ceil($total / $limit);
         }
 
         .pagination a {
-            margin: 0 5px;
+            margin: 20px 10px;
             text-decoration: none;
             padding: 5px 10px;
             border: 1px solid #ccc;
