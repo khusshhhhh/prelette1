@@ -143,6 +143,10 @@
             <!-- <li><a href="./blog.html">Blogs</a></li> -->
             <li><a href="./portfolio.html">Portfolio</a></li>
             <li><a href="./contactus.html">Contact Us</a></li>
+            <li><a href="https://www.instagram.com/prelette.au/" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-square-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/prelette/" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-linkedin"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -245,6 +249,12 @@
             </ul>
           </nav>
         </div>
+        <div class="design-std-btn">
+          <span class="mas">Design Studio<i class="fa-solid fa-arrow-up-from-bracket"
+              style="color: #000000;"></i></span>
+          <a href="designp.html"><button type="button" name="Hover">Design Studio<i
+                class="fa-solid fa-arrow-up-from-bracket" style="color: #000000;"></i></button></a>
+        </div>
         <div class="social-btn" id="has-smooth">
           <a href="https://www.instagram.com/prelette.au/" target="_blank" rel="noopener noreferrer"><i
               class="fa-brands fa-square-instagram"></i></a>
@@ -275,7 +285,7 @@
             <div class="container container-large">
               <div class="intro-grid">
                 <div class="intro-info">
-                  <h1 class="highlight-text has_fade_anim" data-fade-from="left">Your All-in-One Partner for Data Driven
+                  <h1 class="highlight-text has_fade_anim" data-fade-from="top">Your All-in-One Partner for Data Driven
                     Success
                   </h1>
                   <img class="arrow-button show-light" src="assets/imgs/shape/img-s-2.webp" alt="arrow-button">
@@ -293,7 +303,7 @@
                     insights, enabling businesses to make smarter decisions and achieve sustainable growth. Through
                     advanced analytics and business intelligence, we optimize business operations, enhance efficiency,
                     uncover financial insights and much more.</p>
-                  <div class="btn-wrap has_fade_anim" data-fade-from="bottom" data-delay="0.45">
+                  <div class="btn-wrap has_fade_anim" data-fade-from="top" data-delay="0.45">
                     <a href="ourservices.html" class="wc-btn wc-btn-primary btn-text-flip"><span
                         data-text="Learn more">What We Can Do</span></a>
                   </div>
@@ -898,7 +908,16 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/error-handling.js"></script>
   <script src="assets/js/offcanvas.js"></script>
-
+  <script>
+    const toggleSwitch = document.getElementById('toggle-switch');
+    toggleSwitch.addEventListener('change', () => {
+      if (toggleSwitch.checked) {
+        window.location.href = 'designp.html'; // Replace with the actual Design page URL
+      } else {
+        window.location.href = 'indexp.html'; // Replace with the actual Data page URL
+      }
+    });
+  </script>
   <script>
     // testimonial_active
     if ('.testimonial-active') {

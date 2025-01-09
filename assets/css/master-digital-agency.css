@@ -7042,6 +7042,7 @@ section {
   }
 }
 .offcanvas-3__menu-wrapper {
+  margin-top: 40px;
   display: flex;
   align-items: flex-end;
   overflow-y: hidden;
@@ -7669,7 +7670,7 @@ section {
 }
 @media only screen and (max-width: 1399px) {
   .intro-area .intro-content .text {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -7686,17 +7687,17 @@ section {
 }
 @media only screen and (max-width: 1399px) {
   .intro-area .intro-title {
-    font-size: 66px;
+    font-size: 42px;
   }
 }
 @media only screen and (max-width: 991px) {
   .intro-area .intro-title {
-    font-size: 56px;
+    font-size: 40px;
   }
 }
 @media (max-width: 575px) {
   .intro-area .intro-title {
-    font-size: 46px;
+    font-size: 36px;
   }
 }
 .intro-area .intro-title .small-hypen {
@@ -9123,4 +9124,113 @@ section {
 .header-area__inner .social-btn a {
   font-size: 24px;
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 1206px) {
+  .header-area__inner .social-btn {
+    display: none;
+  }
+  .design-std-btn button i {
+    display: none;
+  }
+  .design-std-btn a {
+    font-size: 12px;
+  }
+  .mas {
+    font-size: 12px;
+  }
+  .mas i {
+    display: none;
+  }
+}
+
+.design-std-btn {
+  /* width: 100px; */
+  /* height: 50px; */
+  overflow: hidden;
+  /* border: 1px solid #000; */
+  transition: 0.5s;
+  border-radius: 8px;
+}
+.design-std-btn button {
+  /* width: 101%; */
+  /* height: 100%; */
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  background: #feda1e;
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask-size: 3000% 100%;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(29) forwards;
+  animation: ani2 0.7s steps(29) forwards;
+}
+
+.design-std-btn button i {
+  margin-left: 10px;
+}
+
+.design-std-btn button:hover {
+  -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
+}
+
+.mas {
+  position: absolute;
+  color: #000;
+  text-align: center;
+  position: absolute;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.mas i {
+  margin-left: 10px;
+}
+
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+@keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
 }

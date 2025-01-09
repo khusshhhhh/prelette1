@@ -3043,7 +3043,7 @@
   padding: 0;
 }
 body {
-  font-family: var(--font_awesome);
+  font-family: var(--font_kanit);
   line-height: 1;
 }
 html {
@@ -7431,6 +7431,12 @@ section {
   position: relative;
   height: 100px;
 }
+
+.header-area .main-menu > ul > li > a.active-btn {
+  background-color: var(--black);
+  color: var(--white);
+}
+
 @media only screen and (max-width: 1919px) {
   .header-area .header-area__inner {
     height: 80px;
@@ -7451,13 +7457,8 @@ section {
   background-color: var(--black);
   padding-top: 100px;
   position: relative;
-  margin-top: 100px;
 }
-@media only screen and (max-width: 1919px) {
-  .hero-area {
-    margin-top: 80px;
-  }
-}
+
 @media only screen and (max-width: 1199px) {
   .hero-area {
     height: auto;
@@ -8720,4 +8721,118 @@ section {
 
 .header__logo img {
   width: 50%;
+}
+
+.header-area__inner .social-btn a {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 1206px) {
+  .header-area__inner .social-btn {
+    display: none;
+  }
+  .design-std-btn button i {
+    display: none;
+  }
+  .design-std-btn a {
+    font-size: 12px;
+  }
+  .mas {
+    font-size: 12px;
+  }
+  .mas i {
+    display: none;
+  }
+}
+
+.design-std-btn {
+  /* width: 100px; */
+  /* height: 50px; */
+  overflow: hidden;
+  /* border: 1px solid #000; */
+  transition: 0.5s;
+  border-radius: 8px;
+}
+.design-std-btn button {
+  /* width: 101%; */
+  /* height: 100%; */
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  background: #feda1e;
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask-size: 3000% 100%;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(29) forwards;
+  animation: ani2 0.7s steps(29) forwards;
+}
+
+.design-std-btn button i {
+  margin-left: 10px;
+}
+
+.design-std-btn button:hover {
+  -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
+}
+
+.mas {
+  position: absolute;
+  color: #000;
+  text-align: center;
+  position: absolute;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.mas i {
+  margin-left: 10px;
+}
+
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+@keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
 }
