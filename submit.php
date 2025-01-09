@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mail($toEmail, $subject, $message, $headers);
 
             // Redirect to thankyou.html
-            header("Location: thankyou.html");
+            header("Location: contactus.html");
             exit;
         }
     }
