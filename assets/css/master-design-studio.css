@@ -7008,7 +7008,7 @@ section {
   position: relative;
   transition: all 0.5s cubic-bezier(0, 0, 0.23, 1);
   text-decoration: none;
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   background-image: linear-gradient(90deg, #fff, #ddd 50%, #666 0);
   background-size: 200% 100%;
@@ -7289,7 +7289,7 @@ section {
   text-transform: capitalize;
 }
 :root {
-  --theme: #c9f31d;
+  --theme: #ff9d00;
 }
 .section-subtitle {
   font-size: 16px;
@@ -7300,7 +7300,6 @@ section {
 }
 .section-title {
   font-size: 70px;
-  margin-top: -19px;
 }
 @media only screen and (max-width: 1919px) {
   .section-title {
@@ -7394,22 +7393,22 @@ section {
 }
 @media only screen and (max-width: 1919px) {
   .section-spacing-bottom {
-    padding-bottom: 120px;
+    padding-bottom: 130px;
   }
 }
 @media only screen and (max-width: 1399px) {
   .section-spacing-bottom {
-    padding-bottom: 100px;
+    padding-bottom: 160px;
   }
 }
 @media only screen and (max-width: 1199px) {
   .section-spacing-bottom {
-    padding-bottom: 80px;
+    padding-bottom: 150px;
   }
 }
 @media only screen and (max-width: 767px) {
   .section-spacing-bottom {
-    padding-bottom: 60px;
+    padding-bottom: 150px;
   }
 }
 .header-area {
@@ -7598,12 +7597,12 @@ section {
 }
 @media only screen and (max-width: 1919px) {
   .hero-area .section-title-wrapper {
-    margin-top: 134px;
+    margin-top: 20px;
   }
 }
 @media only screen and (max-width: 1399px) {
   .hero-area .section-title-wrapper {
-    margin-top: 104px;
+    margin-top: 20px;
   }
 }
 .hero-area .section-content .text-wrapper {
