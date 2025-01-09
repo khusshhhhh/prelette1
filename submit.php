@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "Email: $email\nDate: $date";
             mail($toEmail, $subject, $message, $headers);
 
-            // Redirect to thankyou.html
-            header("Location: contactus.html");
+            // Redirect to contactus.html
+            header("Location: indexp.html");
             exit;
         }
     }
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mail($toEmail, $subjectEmail, $messageEmail, $headers);
 
             // Redirect to contactus.html
-            header("Location: contactus.html");
+            header("Location: thankyou.html");
             exit;
         }
     }
