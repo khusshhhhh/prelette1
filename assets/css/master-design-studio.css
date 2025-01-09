@@ -7527,10 +7527,16 @@ section {
   .hero-area .section-title {
     font-size: 80px;
   }
+  .hero-area .section-title {
+    margin-bottom: 8px;
+  }
 }
 @media (max-width: 575px) {
   .hero-area .section-title {
     font-size: 55px;
+  }
+  .hero-area .section-title {
+    margin-bottom: 8px;
   }
 }
 .hero-area .section-title .o-switch {
@@ -8004,7 +8010,7 @@ section {
 .about-area .section-content .info-area {
   margin-top: 80px;
   display: grid;
-  grid-template-columns: 44% 56%;
+  grid-template-columns: 54% 46%;
 }
 @media (max-width: 575px) {
   .about-area .section-content .info-area {
@@ -8047,9 +8053,9 @@ section {
   color: var(--black);
 }
 .about-area .info-text .text {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.37;
-  max-width: 303px;
+  max-width: 300px;
   margin-top: 5px;
 }
 @media only screen and (max-width: 991px) {
@@ -8073,7 +8079,7 @@ section {
   }
 }
 .about-area .info-text .number span {
-  font-size: 40px;
+  font-size: 70px;
 }
 .service-area .section-content {
   display: grid;
@@ -8757,6 +8763,10 @@ section {
   /* width: 101%; */
   /* height: 100%; */
   padding: 12px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+    /* Bottom shadow */ 0 -4px 8px rgba(0, 0, 0, 0.2),
+    /* Top shadow */ 4px 0 8px rgba(0, 0, 0, 0.2),
+    /* Right shadow */ -4px 0 8px rgba(0, 0, 0, 0.2); /* Left shadow */
   font-size: 18px;
   font-weight: 500;
   background: #feda1e;

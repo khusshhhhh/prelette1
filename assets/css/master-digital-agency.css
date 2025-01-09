@@ -6402,15 +6402,15 @@ section {
 }
 .cursor1 {
   position: fixed;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border: 1px solid var(--primary);
   border-radius: 50%;
   left: 0;
   top: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: 0.5s;
+  transition: 0.8s;
   z-index: 999;
 }
 @media (max-width: 1200px) {
@@ -7294,7 +7294,7 @@ section {
 }
 :root {
   --theme: #feda1f;
-  --section-bg: #faf8f7;
+  --section-bg: #ffffff;
 }
 .section-title {
   font-size: 90px;
@@ -9151,6 +9151,9 @@ section {
   /* border: 1px solid #000; */
   transition: 0.5s;
   border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(254, 217, 30, 0.6),
+    0 -6px 10px rgb(254, 218, 30, 0.6), 6px 0 10px rgb(254, 218, 30, 0.6),
+    -6px 0 10px rgb(254, 218, 30, 0.6);
 }
 .design-std-btn button {
   /* width: 101%; */
@@ -9158,7 +9161,7 @@ section {
   padding: 12px 20px;
   font-size: 18px;
   font-weight: 500;
-  background: #feda1e;
+  background: rgb(254, 218, 30);
   -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   -webkit-mask-size: 3000% 100%;
