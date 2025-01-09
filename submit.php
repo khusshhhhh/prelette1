@@ -1,18 +1,7 @@
 <?php
 
-// Database credentials
-$host = "localhost";
-$username = "khush";
-$password = "Khush@3160"; // Use your database password
-$dbname = "prelette_customer"; // Replace with your database name
-
-// Create a database connection
-$conn = new mysqli($host, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Include database connection
+include 'db_connection.php';
 
 // Email configuration
 $toEmail = "theprelette@gmail.com"; // Replace with your email address
@@ -57,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $messageEmail = "Name: $name\nEmail: $email\nPhone: $phone\nSubject: $subject\nMessage: $message\nDate: $date";
             mail($toEmail, $subjectEmail, $messageEmail, $headers);
 
-            // Redirect to thankyou.html
+            // Redirect to contactus.html
             header("Location: contactus.html");
             exit;
         }
