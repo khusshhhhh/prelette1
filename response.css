@@ -61,3 +61,70 @@ td {
   padding: 8px 15px;
   cursor: pointer;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* For tablets and smaller screens */
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  .message-column {
+    max-width: 120px;
+    font-size: 12px;
+  }
+
+  .search-form input[type="text"] {
+    width: 200px;
+  }
+
+  .search-form button {
+    padding: 6px 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* For mobile screens */
+  table {
+    width: 100%;
+    border: 0;
+  }
+
+  thead {
+    display: none; /* Hide table headers */
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: 0;
+  }
+
+  td::before {
+    content: attr(data-label); /* Use the attribute to display label */
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .message-column {
+    max-width: 100%;
+    max-height: 80px;
+    font-size: 12px;
+  }
+}
