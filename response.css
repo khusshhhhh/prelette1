@@ -15,8 +15,10 @@ td {
   text-align: left;
 }
 
-td .message {
+.message-column {
   max-width: 200px;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .pagination a {

@@ -71,7 +71,7 @@ $pages = ceil($total / $limit);
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
                     <td><?php echo $row['subject']; ?></td>
-                    <td><?php echo $row['message']; ?></td>
+                    <td class="message-column"><?php echo $row['message']; ?></td>
                     <td><?php echo $row['date']; ?></td>
                     <td>
                         <form method="POST" class="note-form">
