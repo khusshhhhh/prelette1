@@ -1,0 +1,57 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+.pagination a {
+  margin: 20px 10px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.note-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.note-form input[type="text"] {
+  width: 100%;
+  padding: 5px;
+}
+
+.note-form button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  width: 300px;
+}
+
+.search-form button {
+  padding: 8px 15px;
+  cursor: pointer;
+}

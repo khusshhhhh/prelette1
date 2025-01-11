@@ -14,12 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_note'])) {
     $conn->query($updateSql);
 }
 
-// Fetch data
-$sql = "SELECT * FROM contact_us LIMIT $start, $limit";
-$result = $conn->query($sql);
+// Search functionality
+$searchQuery = "";
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $searchQuery = $conn->real_escape_string($_GET['search']);
+    $sql = "SELECT * FROM contact_us WHERE name LIKE '%$searchQuery%' LIMIT $start, $limit";
+    $countResult = $conn->query("SELECT COUNT(*) as count FROM contact_us WHERE name LIKE '%$searchQuery%'");
+} else {
+    $sql = "SELECT * FROM contact_us LIMIT $start, $limit";
+    $countResult = $conn->query("SELECT COUNT(*) as count FROM contact_us");
+}
 
-// Count total records
-$countResult = $conn->query("SELECT COUNT(*) as count FROM contact_us");
+$result = $conn->query($sql);
 $total = $countResult->fetch_assoc()['count'];
 $pages = ceil($total / $limit);
 ?>
@@ -32,55 +38,17 @@ $pages = ceil($total / $limit);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prelette | Responses</title>
     <link rel="icon" type="image/x-icon" href="assets/imgs/logo/fav.png">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        .pagination a {
-            margin: 20px 10px;
-            text-decoration: none;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-        }
-
-        .pagination a:hover {
-            background-color: #f0f0f0;
-        }
-
-        .note-form {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .note-form input[type="text"] {
-            width: 100%;
-            padding: 5px;
-        }
-
-        .note-form button {
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
     <h1>Contact Form Submissions</h1>
+
+    <form method="GET" class="search-form">
+        <input type="text" name="search" placeholder="Search by Name"
+            value="<?php echo htmlspecialchars($searchQuery); ?>">
+        <button type="submit">Search</button>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -119,7 +87,8 @@ $pages = ceil($total / $limit);
     <!-- Pagination Links -->
     <div class="pagination">
         <?php for ($i = 1; $i <= $pages; $i++) { ?>
-            <a href="view_page.php?page=<?php echo $i; ?>">Page <?php echo $i; ?></a>
+            <a href="view_page.php?page=<?php echo $i; ?>&search=<?php echo urlencode($searchQuery); ?>">Page
+                <?php echo $i; ?></a>
         <?php } ?>
     </div>
 </body>
