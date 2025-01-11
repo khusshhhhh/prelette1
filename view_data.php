@@ -38,6 +38,7 @@ $pages = ceil($total / $limit);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prelette | Responses</title>
     <link rel="icon" type="image/x-icon" href="assets/imgs/logo/fav.png">
+    <link rel="stylesheet" href="response.css">
 </head>
 
 <body>
