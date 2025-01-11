@@ -2,31 +2,31 @@
 
 function createSpringSlider(el, extendParams = {}) {
   // main swiper el
-  const swiperEl = el.querySelector('.swiper');
+  const swiperEl = el.querySelector(".swiper");
 
   let previousProgress = 0;
   let isTouched = false;
 
   const resetDelay = (swiper) => {
     swiper.slides.forEach((slideEl) => {
-      slideEl.style.transitionDelay = '0ms';
+      slideEl.style.transitionDelay = "0ms";
     });
   };
 
   // init main swiper
   const swiper = new Swiper(swiperEl, {
-    effect: 'creative',
-    speed: 720,
+    effect: "creative",
+    speed: 2500,
     followFinger: false,
     ...extendParams,
-    
+
     creativeEffect: {
       limitProgress: 100,
       prev: {
-        translate: ['-100%', 0, 0],
+        translate: ["-100%", 0, 0],
       },
       next: {
-        translate: ['100%', 0, 0],
+        translate: ["100%", 0, 0],
       },
     },
     on: {
@@ -49,18 +49,18 @@ function createSpringSlider(el, extendParams = {}) {
         if (extendParams.on && extendParams.on.progress) {
           extendParams.on.progress(swiper, progress);
         }
-        const direction = swiper.progress > previousProgress ? 'next' : 'prev';
+        const direction = swiper.progress > previousProgress ? "next" : "prev";
         previousProgress = swiper.progress;
         const delay = swiper.params.speed / 16;
         const visibleIndexes = swiper.visibleSlidesIndexes;
         const firstIndex = visibleIndexes[0];
         const lastIndex = visibleIndexes[visibleIndexes.length - 1];
         const setDelay = (slideEl, slideIndex) => {
-          if (direction === 'next' && slideIndex >= firstIndex) {
+          if (direction === "next" && slideIndex >= firstIndex) {
             slideEl.style.transitionDelay = `${
               (slideIndex - firstIndex + 1) * delay
             }ms`;
-          } else if (direction === 'prev' && slideIndex <= lastIndex + 1) {
+          } else if (direction === "prev" && slideIndex <= lastIndex + 1) {
             slideEl.style.transitionDelay = `${
               (lastIndex - slideIndex + 1) * delay
             }ms`;
@@ -70,7 +70,7 @@ function createSpringSlider(el, extendParams = {}) {
         };
         swiper.slides.forEach((slideEl, slideIndex) => {
           if (swiper.animating) {
-            slideEl.style.transitionDelay = '0ms';
+            slideEl.style.transitionDelay = "0ms";
             requestAnimationFrame(() => {
               setDelay(slideEl, slideIndex);
             });
@@ -82,7 +82,7 @@ function createSpringSlider(el, extendParams = {}) {
     },
   });
 
-  swiper.on('transitionEnd resize touchStart', () => {
+  swiper.on("transitionEnd resize touchStart", () => {
     resetDelay(swiper);
   });
 
