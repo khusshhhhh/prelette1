@@ -16,9 +16,8 @@ td {
 }
 
 .message-column {
-  max-width: 200px;
-  overflow: auto;
-  white-space: nowrap;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .pagination a {
