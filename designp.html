@@ -777,12 +777,12 @@
               <img class="show-dark" src="assets/imgs/shape/img-s-33-light.webp" alt="shape">
             </div>
             <div class="section-header">
-              <div class="section-title-wrapper">
+              <!-- <div class="section-title-wrapper">
                 <div class="title-wrapper">
                   <h2 class="section-title has_text_move_anim"><span>Get started</span> <br>
                     now</h2>
                 </div>
-              </div>
+              </div> -->
               <div class="text-wrapper">
                 <p class="text has_fade_anim">If you would like to work with us or
                   just want to get in touch, we’d love
@@ -804,7 +804,7 @@
                     VIC 3000</li>
                 </ul>
               </div>
-              <div class="footer-widget-wrapper newsletter">
+              <!-- <div class="footer-widget-wrapper newsletter">
                 <form action="submit.php" method="POST" class="subscribe-form">
                   <div class="input-field">
                     <input type="email" placeholder="Enter your email">
@@ -812,7 +812,7 @@
                         alt="icon"></button>
                   </div>
                 </form>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -879,10 +879,11 @@
     // Slider
     if (('.prooject-slider').length) {
       var project_slider = new Swiper(".prooject-slider", {
-        loop: false,
+        loop: true,
+        autoplay: true,
         slidesPerView: 1,
         spaceBetween: 40,
-        speed: 1800,
+        speed: 1200,
         watchSlidesProgress: true,
         navigation: {
           prevEl: ".prooject-button-prev",

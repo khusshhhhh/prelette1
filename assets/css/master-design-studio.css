@@ -7853,7 +7853,7 @@ section {
   margin-top: 60px;
   display: grid;
   gap: 30px 120px;
-  grid-template-columns: 190px 190px 1fr;
+  grid-template-columns: 300px 190px 1fr;
 }
 @media only screen and (max-width: 1919px) {
   .footer-cta {
