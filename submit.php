@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = $conn->real_escape_string($_POST['Phone']);
         $subject = $conn->real_escape_string($_POST['Subject']);
         $message = $conn->real_escape_string($_POST['Messages']);
-        $date = date("Y-m-d H:i:s");
+        $date = date("Y-m-d");
 
         // Insert data into the contact_us table
         $sql = "INSERT INTO contact_us (name, email, phone, subject, message, date) 
