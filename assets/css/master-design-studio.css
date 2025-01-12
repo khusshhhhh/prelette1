@@ -9301,3 +9301,105 @@ section {
 .prooject-box .wc-btn-circle i {
   transform: rotate(-45deg);
 }
+
+/* PRICING */
+
+.pricing-area {
+  margin-top: -150px;
+}
+
+.pricing-area .section-title {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.pricing-area .section-header {
+  text-align: center;
+}
+.pricing-area .pricing-wrapper-box {
+  margin-top: 57px;
+}
+@media only screen and (max-width: 1399px) {
+  .pricing-area .pricing-wrapper-box {
+    margin-top: 47px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .pricing-area .pricing-wrapper-box {
+    margin-top: 37px;
+  }
+}
+.pricing-area .pricing-wrapper {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media only screen and (max-width: 991px) {
+  .pricing-area .pricing-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .pricing-area .pricing-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.pricing-box {
+  background-color: #fbf9f9;
+  padding: 47px 50px 50px;
+}
+.dark .pricing-box {
+  background-color: #1b1b1b;
+}
+@media only screen and (max-width: 1199px) {
+  .pricing-box {
+    padding: 27px 30px 30px;
+  }
+}
+.pricing-box .tag {
+  font-size: 18px;
+  color: var(--primary);
+  display: inline-block;
+  line-height: 1;
+}
+.pricing-box .feature-list {
+  margin-top: 39px;
+}
+.pricing-box .feature-list li {
+  display: flex;
+  align-items: center;
+}
+.pricing-box .feature-list li:not(:first-child) {
+  margin-top: 15px;
+}
+.pricing-box .feature-list li img {
+  margin-inline-end: 10px;
+}
+.dir-rtl .pricing-box .feature-list li img {
+  transform: rotateY(180deg);
+}
+.pricing-box .price {
+  font-size: 60px;
+  line-height: 1;
+  margin-top: 17px;
+}
+@media only screen and (max-width: 1399px) {
+  .pricing-box .price {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .pricing-box .price {
+    font-size: 40px;
+  }
+}
+.pricing-box .wc-btn-primary {
+  margin-top: 50px;
+}
+@media only screen and (max-width: 1199px) {
+  .pricing-box .wc-btn-primary {
+    margin-top: 40px;
+  }
+}
+.dark .pricing-box .wc-btn-primary:hover {
+  color: var(--black);
+}

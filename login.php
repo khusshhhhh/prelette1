@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prelette | Admin Dashboard</title>
-    <link rel="shortcut icon" href="./assets/imgs/logo/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/imgs/logo/fav.png" type="image/x-icon">
     <style>
         @import url("https://fonts.googleapis.com/css?family=Montserrat:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 
