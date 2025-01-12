@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <div class="title">
-            <h1>MRKB Admin Dashboard</h1>
+            <h1>Prelette Admin Dashboard</h1>
         </div>
         <div class="main">
             <form method="POST" action="">

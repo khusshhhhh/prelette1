@@ -144,8 +144,8 @@ $result = $conn->query($sql);
             /* Set the desired width */
         }
 
-        table th:nth-child(9),
-        table td:nth-child(9) {
+        table th:nth-child(8),
+        table td:nth-child(8) {
             width: 250px;
             /* Set the desired width */
         }
@@ -201,8 +201,8 @@ $result = $conn->query($sql);
                 font-size: 14px;
             }
 
-            table th:nth-child(9),
-            table td:nth-child(9) {
+            table th:nth-child(8),
+            table td:nth-child(8) {
                 width: 250px;
                 /* Set the desired width */
             }
@@ -256,8 +256,8 @@ $result = $conn->query($sql);
                 overflow-x: auto;
             }
 
-            table th:nth-child(9),
-            table td:nth-child(9) {
+            table th:nth-child(8),
+            table td:nth-child(8) {
                 width: 250px;
                 /* Set the desired width */
             }
