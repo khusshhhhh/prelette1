@@ -9144,6 +9144,15 @@ section {
   }
 }
 
+@media only screen and (max-width: 406px) {
+  .design-std-btn a {
+    font-size: 10px;
+  }
+  .mas {
+    font-size: 10px;
+  }
+}
+
 .design-std-btn {
   /* width: 100px; */
   /* height: 50px; */

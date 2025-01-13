@@ -9331,7 +9331,7 @@ section {
 .pricing-area .pricing-wrapper {
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 @media only screen and (max-width: 991px) {
   .pricing-area .pricing-wrapper {
@@ -9345,7 +9345,7 @@ section {
 }
 .pricing-box {
   background-color: #fbf9f9;
-  padding: 47px 50px 50px;
+  padding: 47px 20px 50px;
 }
 .dark .pricing-box {
   background-color: #1b1b1b;
@@ -9356,10 +9356,12 @@ section {
   }
 }
 .pricing-box .tag {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--primary);
   display: inline-block;
   line-height: 1;
+  font-weight: 500;
+  text-decoration: underline;
 }
 .pricing-box .feature-list {
   margin-top: 39px;
@@ -9378,7 +9380,7 @@ section {
   transform: rotateY(180deg);
 }
 .pricing-box .price {
-  font-size: 60px;
+  font-size: 50px;
   line-height: 1;
   margin-top: 17px;
 }
