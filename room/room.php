@@ -10,6 +10,7 @@ require 'db_connection.php';
     <title>Room Listings</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    <link rel="shortcut icon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
 </head>
 
 <body>
