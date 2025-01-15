@@ -5,7 +5,7 @@ session_start();
 
 // Check if the host is logged in
 if (!isset($_SESSION['host_id'])) {
-    header("Location: login.php");
+    header("Location: signup.php");
     exit();
 }
 
