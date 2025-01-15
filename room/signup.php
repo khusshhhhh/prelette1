@@ -1,5 +1,5 @@
 <?php
-// signup_login.php
+// signup.php
 require 'db_connection.php';
 session_start();
 
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button onclick="showForm('login')">Login</button>
         </div>
         <div class="form-container">
-            <form id="signup-form" method="POST" action="signup_login.php">
+            <form id="signup-form" method="POST" action="signup.php">
                 <input type="hidden" name="signup">
                 <label for="signup-email">Email</label>
                 <input type="email" id="signup-email" name="signup-email" placeholder="Enter your email" required>
@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit">Sign Up</button>
             </form>
 
-            <form id="login-form" method="POST" action="signup_login.php" style="display: none;">
+            <form id="login-form" method="POST" action="signup.php" style="display: none;">
                 <input type="hidden" name="login">
                 <label for="login-email">Email</label>
                 <input type="email" id="login-email" name="login-email" placeholder="Enter your email" required>
