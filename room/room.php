@@ -16,8 +16,8 @@ require 'db_connection.php';
 <body>
     <!-- Navbar -->
     <header class="navbar">
-        <div class="logo">MyRoom</div>
-        <button class="host-now-btn">Host Now</button>
+        <div class="logo"><a href="room.php">MyRoom by Prelette</a></div>
+        <button class="host-now-btn"><a href="signup.php">Sign Up | Log In | Host Now</a></button>
     </header>
 
     <!-- Filters Section -->
