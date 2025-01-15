@@ -1,5 +1,12 @@
 <?php
 require 'db_connection.php';
+
+try {
+    $query = $conn->query("SELECT * FROM listings ORDER BY created_at DESC");
+    $listings = $query->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error fetching listings: " . $e->getMessage());
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +17,6 @@ require 'db_connection.php';
     <title>Room Listings</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
-    <link rel="shortcut icon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
 </head>
 
 <body>
@@ -30,7 +36,7 @@ require 'db_connection.php';
         <select id="filter-suburb">
             <option value="">Filter by Suburb</option>
             <?php
-            $query = $conn->query("SELECT DISTINCT suburb FROM suburbs ORDER BY suburb ASC");
+            $query = $conn->query("SELECT DISTINCT suburb FROM listings ORDER BY suburb ASC");
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value='" . htmlspecialchars($row['suburb']) . "'>" . htmlspecialchars($row['suburb']) . "</option>";
             }
@@ -45,19 +51,25 @@ require 'db_connection.php';
 
     <!-- Listings Section -->
     <main class="listings" id="listings">
-        <?php
-        $query = $conn->query("SELECT * FROM listings ORDER BY created_at DESC");
-        while ($listing = $query->fetch(PDO::FETCH_ASSOC)) {
-            echo "<div class='card card-horizontal'>";
-            echo "<img src='" . htmlspecialchars($listing['image_1']) . "' alt='" . htmlspecialchars($listing['title']) . "'>";
-            echo "<div class='card-content'>";
-            echo "<h3 class='card-title'>" . htmlspecialchars($listing['title']) . "</h3>";
-            echo "<p class='card-description'>" . htmlspecialchars(substr($listing['description'], 0, 20)) . "...</p>";
-            echo "<span class='show-more' onclick='showMore(this, `" . htmlspecialchars($listing['description']) . "`)'>Show more</span>";
-            echo "<p>Price: $" . htmlspecialchars($listing['price']) . "</p>";
-            echo "</div></div>";
-        }
-        ?>
+        <?php if (!empty($listings)): ?>
+            <?php foreach ($listings as $listing): ?>
+                <div class="card card-horizontal">
+                    <img src="<?php echo htmlspecialchars($listing['image_1']); ?>"
+                        alt="<?php echo htmlspecialchars($listing['title']); ?>">
+                    <div class="card-content">
+                        <h3 class="card-title"><?php echo htmlspecialchars($listing['title']); ?></h3>
+                        <p class="card-description"><?php echo htmlspecialchars(substr($listing['description'], 0, 20)); ?>...
+                        </p>
+                        <span class="show-more"
+                            onclick="showMore(this, '<?php echo htmlspecialchars($listing['description']); ?>')">Show
+                            more</span>
+                        <p>Price: $<?php echo htmlspecialchars($listing['price']); ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No listings available.</p>
+        <?php endif; ?>
     </main>
 
     <script>
