@@ -1,5 +1,3 @@
-// script.js
-
 // Fetch all listings from the page
 const listingsContainer = document.getElementById("listings");
 const filterGender = document.getElementById("filter-gender");
@@ -17,8 +15,8 @@ function extractListings() {
     const price = parseFloat(
       card.querySelector("p:last-of-type").textContent.replace("Price: $", "")
     );
-    const gender = card.dataset.gender;
-    const suburb = card.dataset.suburb;
+    const gender = card.getAttribute("data-gender");
+    const suburb = card.getAttribute("data-suburb");
 
     listings.push({
       element: card,
@@ -74,13 +72,15 @@ filterGender.addEventListener("change", applyFiltersAndSorting);
 filterSuburb.addEventListener("change", applyFiltersAndSorting);
 sortPrice.addEventListener("change", applyFiltersAndSorting);
 
-// Expand full description when "Show More" is clicked
-listingsContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("show-more")) {
-    const descriptionElem = event.target.previousElementSibling;
-    const fullDescription = event.target.dataset.fullDescription;
+// Add event listeners for all "Call Now" buttons
+document.querySelectorAll(".call-now-btn").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const mobile = button.getAttribute("data-mobile");
+    alert(`Host's Phone Number: ${mobile}`);
+  });
+});
 
-    descriptionElem.textContent = fullDescription;
-    event.target.style.display = "none"; // Hide the "Show More" button
-  }
+// Initialize the image slider for each card (if using a library)
+document.querySelectorAll(".image-slider").forEach((slider) => {
+  // Initialize slider here (e.g., Swiper.js or custom)
 });

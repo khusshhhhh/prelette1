@@ -2,7 +2,7 @@
 require 'db_connection.php';
 
 try {
-    $query = $conn->query("SELECT * FROM listings ORDER BY created_at DESC");
+    $query = $conn->query("SELECT listings.*, hosts.mobile FROM listings JOIN hosts ON listings.host_id = hosts.host_id ORDER BY created_at DESC");
     $listings = $query->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Error fetching listings: " . $e->getMessage());
@@ -16,6 +16,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Listings</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="favicon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
     <script defer src="script.js"></script>
 </head>
 
@@ -54,16 +55,28 @@ try {
         <?php if (!empty($listings)): ?>
             <?php foreach ($listings as $listing): ?>
                 <div class="card card-horizontal">
-                    <img src="<?php echo htmlspecialchars($listing['image_1']); ?>"
-                        alt="<?php echo htmlspecialchars($listing['title']); ?>">
+                    <div class="image-slider">
+                        <img src="<?php echo htmlspecialchars($listing['image_1']); ?>"
+                            alt="<?php echo htmlspecialchars($listing['title']); ?>">
+                        <?php if (!empty($listing['image_2'])): ?>
+                            <img src="<?php echo htmlspecialchars($listing['image_2']); ?>"
+                                alt="<?php echo htmlspecialchars($listing['title']); ?>">
+                        <?php endif; ?>
+                        <?php if (!empty($listing['image_3'])): ?>
+                            <img src="<?php echo htmlspecialchars($listing['image_3']); ?>"
+                                alt="<?php echo htmlspecialchars($listing['title']); ?>">
+                        <?php endif; ?>
+                        <?php if (!empty($listing['image_4'])): ?>
+                            <img src="<?php echo htmlspecialchars($listing['image_4']); ?>"
+                                alt="<?php echo htmlspecialchars($listing['title']); ?>">
+                        <?php endif; ?>
+                    </div>
                     <div class="card-content">
                         <h3 class="card-title"><?php echo htmlspecialchars($listing['title']); ?></h3>
-                        <p class="card-description"><?php echo htmlspecialchars(substr($listing['description'], 0, 20)); ?>...
-                        </p>
-                        <span class="show-more"
-                            onclick="showMore(this, '<?php echo htmlspecialchars($listing['description']); ?>')">Show
-                            more</span>
+                        <p class="card-description"><?php echo htmlspecialchars($listing['description']); ?></p>
                         <p>Price: $<?php echo htmlspecialchars($listing['price']); ?></p>
+                        <button class="call-now-btn" data-mobile="<?php echo htmlspecialchars($listing['mobile']); ?>">Call
+                            Now</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -73,10 +86,8 @@ try {
     </main>
 
     <script>
-        function showMore(element, fullDescription) {
-            const descriptionElem = element.previousElementSibling;
-            descriptionElem.textContent = fullDescription;
-            element.style.display = 'none';
+        function showPhoneNumber(mobile) {
+            alert("Host's Phone Number: " + mobile);
         }
     </script>
 </body>

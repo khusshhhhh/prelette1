@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['signup'])) {
         // Sign Up Process
         $email = $_POST['signup-email'];
+        $mobile = $_POST['signup-mobile'];
         $password = $_POST['signup-password'];
         $confirmPassword = $_POST['signup-confirm-password'];
 
@@ -15,12 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             die("Passwords do not match!");
         }
 
+        // Validate mobile number
+        if (!preg_match('/^\d{9}$/', $mobile)) {
+            die("Invalid mobile number. Please enter 9 digits.");
+        }
+
+        // Format the mobile number
+        $formattedMobile = '+61' . $mobile;
+
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Insert into database
-        $stmt = $conn->prepare("INSERT INTO hosts (email, password) VALUES (:email, :password)");
+        $stmt = $conn->prepare("INSERT INTO hosts (email, mobile, password) VALUES (:email, :mobile, :password)");
         $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':mobile', $formattedMobile);
         $stmt->bindParam(':password', $hashedPassword);
 
         try {
@@ -38,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         } catch (PDOException $e) {
             if ($e->getCode() == 23505) { // Unique constraint violation
-                die("This email is already registered!");
+                die("This email or mobile number is already registered!");
             } else {
                 die("Error: " . $e->getMessage());
             }
@@ -75,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up & Login</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
+    <link rel="favicon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -178,6 +188,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="hidden" name="signup">
                 <label for="signup-email">Email</label>
                 <input type="email" id="signup-email" name="signup-email" placeholder="Enter your email" required>
+
+                <label for="signup-mobile">Mobile</label>
+                <input type="text" id="signup-mobile" name="signup-mobile" placeholder="123 456 789" pattern="\d{9}"
+                    required>
 
                 <label for="signup-password">Password</label>
                 <input type="password" id="signup-password" name="signup-password" placeholder="Enter your password"

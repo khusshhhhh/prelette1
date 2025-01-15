@@ -27,30 +27,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Please fill in all the required fields.");
     }
 
-    // Image compression and binary conversion
-    function compressImage($source, $quality = 50)
+    // Image compression and save to folder
+    function compressAndSaveImage($file, $folder, $filename, $quality = 50)
     {
-        $info = getimagesize($source);
+        $info = getimagesize($file);
         if ($info['mime'] == 'image/jpeg') {
-            $image = imagecreatefromjpeg($source);
+            $image = imagecreatefromjpeg($file);
         } elseif ($info['mime'] == 'image/png') {
-            $image = imagecreatefrompng($source);
+            $image = imagecreatefrompng($file);
         } else {
             return false;
         }
 
-        ob_start();
-        imagejpeg($image, null, $quality);
-        $compressedImage = ob_get_clean();
-        return $compressedImage;
+        $targetPath = $folder . $filename;
+        imagejpeg($image, $targetPath, $quality);
+        return $targetPath;
     }
 
-    $image1 = !empty($_FILES['image_1']['tmp_name']) ? compressImage($_FILES['image_1']['tmp_name']) : null;
-    $image2 = !empty($_FILES['image_2']['tmp_name']) ? compressImage($_FILES['image_2']['tmp_name']) : null;
-    $image3 = !empty($_FILES['image_3']['tmp_name']) ? compressImage($_FILES['image_3']['tmp_name']) : null;
+    $folder = 'public_html/room/images/';
+    if (!is_dir($folder)) {
+        mkdir($folder, 0777, true);
+    }
+
+    $imagePaths = [];
+    for ($i = 1; $i <= 4; $i++) {
+        $imageKey = "image_" . $i;
+        if (!empty($_FILES[$imageKey]['tmp_name'])) {
+            $filename = 'image' . str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT) . '.jpg';
+            $compressedImagePath = compressAndSaveImage($_FILES[$imageKey]['tmp_name'], $folder, $filename);
+            if ($compressedImagePath) {
+                $imagePaths[] = $compressedImagePath;
+            }
+        }
+    }
+
+    // Ensure all image paths are set in the correct columns
+    $image1 = $imagePaths[0] ?? null;
+    $image2 = $imagePaths[1] ?? null;
+    $image3 = $imagePaths[2] ?? null;
+    $image4 = $imagePaths[3] ?? null;
 
     // Insert the listing into the database
-    $stmt = $conn->prepare("INSERT INTO listings (host_id, title, description, price, address_line, suburb, postcode, requirement, image_1, image_2, image_3) VALUES (:host_id, :title, :description, :price, :address_line, :suburb, :postcode, :requirement, :image_1, :image_2, :image_3)");
+    $stmt = $conn->prepare("INSERT INTO listings (host_id, title, description, price, address_line, suburb, postcode, requirement, image_1, image_2, image_3, image_4) VALUES (:host_id, :title, :description, :price, :address_line, :suburb, :postcode, :requirement, :image_1, :image_2, :image_3, :image_4)");
     $stmt->bindParam(':host_id', $hostId);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':description', $description);
@@ -59,9 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':suburb', $suburb);
     $stmt->bindParam(':postcode', $postcode);
     $stmt->bindParam(':requirement', $requirement);
-    $stmt->bindParam(':image_1', $image1, PDO::PARAM_LOB);
-    $stmt->bindParam(':image_2', $image2, PDO::PARAM_LOB);
-    $stmt->bindParam(':image_3', $image3, PDO::PARAM_LOB);
+    $stmt->bindParam(':image_1', $image1);
+    $stmt->bindParam(':image_2', $image2);
+    $stmt->bindParam(':image_3', $image3);
+    $stmt->bindParam(':image_4', $image4);
 
     try {
         $stmt->execute();
@@ -81,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Listing</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="favicon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -200,6 +220,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="image_3">Image 3</label>
             <input type="file" id="image_3" name="image_3" accept="image/jpeg, image/png">
+
+            <label for="image_4">Image 4</label>
+            <input type="file" id="image_4" name="image_4" accept="image/jpeg, image/png">
 
             <button type="submit">Add Listing</button>
         </form>
