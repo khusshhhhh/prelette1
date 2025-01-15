@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up & Login</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;

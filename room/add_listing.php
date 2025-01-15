@@ -13,13 +13,19 @@ $hostId = $_SESSION['host_id'];
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $price = $_POST['price'];
-    $addressLine = $_POST['address_line'];
-    $suburb = $_POST['suburb'];
-    $postcode = $_POST['postcode'];
-    $requirement = $_POST['requirement'];
+    // Retrieve and validate form data
+    $title = trim($_POST['title']);
+    $description = trim($_POST['description']);
+    $price = trim($_POST['price']);
+    $addressLine = trim($_POST['address_line']);
+    $suburb = trim($_POST['suburb']);
+    $postcode = trim($_POST['postcode']);
+    $requirement = trim($_POST['requirement']);
+
+    // Check if all required fields are filled
+    if (empty($title) || empty($description) || empty($price) || empty($addressLine) || empty($suburb) || empty($postcode) || empty($requirement)) {
+        die("Please fill in all the required fields.");
+    }
 
     // Image compression and binary conversion
     function compressImage($source, $quality = 50)
@@ -59,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt->execute();
-        echo "Listing added successfully!";
         header("Location: account.php");
         exit();
     } catch (PDOException $e) {
@@ -165,10 +170,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="title">Title</label>
             <input type="text" id="title" name="title" maxlength="30" required>
 
-            <label for="description">Description</label>
+            <label for="description">Description (150 Words)</label>
             <textarea id="description" name="description" maxlength="150" required></textarea>
 
-            <label for="price">Price(AUD)</label>
+            <label for="price">Price (AUD)</label>
             <input type="number" id="price" name="price" step="0.01" required>
 
             <label for="address_line">Address Line</label>
@@ -182,6 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="requirement">Requirement</label>
             <select id="requirement" name="requirement" required>
+                <option value="Any">Any</option>
                 <option value="Boy">Boy</option>
                 <option value="Girl">Girl</option>
             </select>
