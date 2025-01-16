@@ -190,8 +190,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="title">Title</label>
             <input type="text" id="title" name="title" maxlength="30" required>
 
-            <label for="description">Description (150 Words)</label>
-            <textarea id="description" name="description" maxlength="150" required></textarea>
+            <label for="description">Description (250 Characters only)</label>
+            <textarea id="description" name="description" maxlength="250" required></textarea>
 
             <label for="price">Price (AUD)</label>
             <input type="number" id="price" name="price" step="0.01" required>
