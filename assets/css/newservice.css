@@ -331,11 +331,11 @@
     margin-top: 57px;
   }
 }
-.process-area .process-wrapper {
+/* .process-area .process-wrapper {
   display: grid;
   gap: 100px 95px;
   grid-template-columns: repeat(3, 1fr);
-}
+} */
 @media only screen and (max-width: 1399px) {
   .process-area .process-wrapper {
     gap: 100px 95px;
