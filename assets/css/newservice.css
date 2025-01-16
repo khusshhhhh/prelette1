@@ -338,9 +338,12 @@
 }
 @media only screen and (max-width: 1399px) {
   .process-area .process-wrapper {
-    gap: 50px 55px;
+    gap: 100px 95px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media only screen and (max-width: 1199px) {
   .process-area .process-wrapper {
     grid-template-columns: repeat(3, 1fr);
