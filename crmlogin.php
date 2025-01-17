@@ -4,12 +4,14 @@ include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $conn->real_escape_string($_POST['username']);
-    $password = $conn->real_escape_string($_POST['password']);
+    $password = $conn->real_escape_string($_POST['password']); // No password_hash verification
 
-    $result = $conn->query("SELECT * FROM users WHERE username='$username' AND password='$password'");
+    // Fetch user directly from database
+    $result = $conn->query("SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1");
 
     if ($result->num_rows > 0) {
         $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
         header("Location: crm.php");
         exit();
     } else {
@@ -24,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prelette | CRM</title>
+    <title>Prelette | CRM Login</title>
     <link rel="shortcut icon" href="assets/imgs/logo/fav.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
