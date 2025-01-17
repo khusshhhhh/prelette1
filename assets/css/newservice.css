@@ -1,6 +1,5 @@
 .hero-area {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url("../imgs/gallery/darkliq.png");
+  background-color: #fff;
 }
 
 .left-service {
@@ -22,7 +21,7 @@
 }
 
 .left-service h1 {
-  color: #fff;
+  color: #000000;
   font-size: 90px;
 }
 
@@ -73,7 +72,7 @@
 
 .left-service .service-warehouse {
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
-    url("../imgs/gallery/ser2.jpg");
+    url("../imgs/gallery/ser2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
