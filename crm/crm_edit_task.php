@@ -14,13 +14,13 @@ if (isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $assigned_to = $_POST['assigned_to'];
+    $assigned_employee_id = $_POST['assigned_employee_id'];
     $client_id = $_POST['client_id'];
     $due_date = $_POST['due_date'];
     $status = $_POST['status'];
 
-    $stmt = $conn->prepare("UPDATE tasks SET title=?, description=?, assigned_to=?, client_id=?, due_date=?, status=? WHERE id=?");
-    $stmt->bind_param("sssissi", $title, $description, $assigned_to, $client_id, $due_date, $status, $id);
+    $stmt = $conn->prepare("UPDATE tasks SET title=?, description=?, assigned_employee_id=?, client_id=?, due_date=?, status=? WHERE id=?");
+    $stmt->bind_param("ssiiisi", $title, $description, $assigned_employee_id, $client_id, $due_date, $status, $id);
 
     if ($stmt->execute()) {
         header("Location: crm_tasks.php?msg=Task updated successfully");
@@ -28,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Error updating task!";
     }
 }
-
 ?>
 
 <div class="container mt-4">
@@ -51,9 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Assigned To</label>
-            <input type="text" name="assigned_to" class="form-control"
-                value="<?php echo htmlspecialchars($task['assigned_to']); ?>" required>
+            <label class="form-label">Assign to Employee</label>
+            <select name="assigned_employee_id" class="form-control" required>
+                <?php
+                $employees = $conn->query("SELECT id, name FROM employees");
+                while ($employee = $employees->fetch_assoc()) {
+                    $selected = ($employee['id'] == $task['assigned_employee_id']) ? "selected" : "";
+                    echo "<option value='{$employee['id']}' $selected>{$employee['name']}</option>";
+                }
+                ?>
+            </select>
         </div>
 
         <div class="mb-3">

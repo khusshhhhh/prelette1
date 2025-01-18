@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
         </select>
 
-        <input type="date" name="due_date" class="form-control mb-2" required>
+        <input type="date" placeholder="Due Date" name="due_date" class="form-control mb-2">
         <button type="submit" class="btn btn-primary">Add Task</button>
     </form>
 </div>
