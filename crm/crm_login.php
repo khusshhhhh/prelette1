@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
+    // Fetch user with plain-text password (⚠ Not Secure, Only Use If Necessary)
     $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -14,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Verify password
-        if (password_verify($password, $user['password'])) {
+        // Compare user input directly with stored password (Plain-Text)
+        if ($password === $user['password']) {
             session_regenerate_id(true);
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_id'] = $user['id'];
@@ -41,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body class="d-flex align-items-center justify-content-center vh-100 bg-light">
     <div class="container text-center">
         <div class="col-md-4 p-4 bg-white shadow rounded">
-            <h2 class="mb-4">CRM Log In</h2>
+            <h2 class="mb-4">Prelette CRM Log In</h2>
             <?php if (isset($error)) {
                 echo "<div class='alert alert-danger'>$error</div>";
             } ?>
