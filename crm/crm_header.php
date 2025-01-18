@@ -26,6 +26,7 @@ if (!isset($_SESSION['username'])) {
                     <li class="nav-item"><a class="nav-link" href="crm_employees.php">Employees</a></li>
                     <li class="nav-item"><a class="nav-link" href="crm_clients.php">Clients</a></li>
                     <li class="nav-item"><a class="nav-link" href="crm_tasks.php">Tasks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="crm_reminders.php">Reminders</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="crm_logout.php">Logout</a>
                     </li>
                 </ul>
