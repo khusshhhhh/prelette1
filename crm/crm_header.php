@@ -23,12 +23,32 @@ if (!isset($_SESSION['username'])) {
             z-index: 1000;
         }
 
-        .table-responsive {
-            overflow-x: auto;
+        /* Restrict message column width & height */
+        .message-column {
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
+        .message-content {
+            max-height: 80px;
+            /* Limit height */
+            overflow: auto;
+            white-space: pre-line;
+        }
+
+        /* Set fixed size for notes */
         .note-input {
-            width: 100%;
+            width: 120px;
+            height: 80px;
+            resize: none;
+            /* Prevent manual resizing */
+        }
+
+        /* Ensure table remains responsive */
+        .table-responsive {
+            overflow-x: auto;
         }
     </style>
 </head>
