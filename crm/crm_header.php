@@ -22,6 +22,14 @@ if (!isset($_SESSION['username'])) {
             top: 0;
             z-index: 1000;
         }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .note-input {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -49,6 +57,8 @@ if (!isset($_SESSION['username'])) {
                             href="crm_payments.php">Payments</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
                             href="crm_expenses.php">Expenses</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
+                            href="crm_view_data.php">Contact Form</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="crm_logout.php">Logout</a>
                     </li>
                 </ul>
