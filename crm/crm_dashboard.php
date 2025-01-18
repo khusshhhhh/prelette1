@@ -81,6 +81,10 @@ while ($row = $revenueData->fetch_assoc()) {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     var ctx = document.getElementById('revenueChart').getContext('2d');
+    document.getElementById('revenueChart').width = 600;  // Set width
+    document.getElementById('revenueChart').height = 300; // Set height
+
+
     var revenueChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -94,7 +98,8 @@ while ($row = $revenueData->fetch_assoc()) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false, // Disable auto-resizing
+            maintainAspectRatio: false, // Allows custom size
             scales: {
                 y: {
                     beginAtZero: true
