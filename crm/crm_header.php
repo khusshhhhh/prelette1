@@ -34,6 +34,8 @@ if (!isset($_SESSION['username'])) {
                             href="crm_reminders.php">Reminders</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
                             href="crm_payments.php">Payments</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
+                            href="crm_expenses.php">Expenses</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="crm_logout.php">Logout</a>
                     </li>
                 </ul>
