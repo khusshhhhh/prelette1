@@ -1,14 +1,12 @@
 <?php
-$servername = "localhost"; // Database server (usually localhost)
-$username = "khush";
-$password = "Khush@3160";
-$dbname = "prelette_customer"; // Database name
+$servername = "localhost";
+$username = "khush"; // Change this if needed
+$password = "Khush@3160"; // Change this if needed
+$dbname = "prelette_customer"; // Ensure this database exists
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Database Connection Failed: " . $conn->connect_error);
 }
 ?>
