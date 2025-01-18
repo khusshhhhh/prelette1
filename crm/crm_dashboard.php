@@ -18,6 +18,10 @@ $reminderCount = $conn->query("SELECT COUNT(*) AS total FROM reminders")->fetch_
 $revenueTotal = $conn->query("SELECT SUM(amount) AS total FROM payments")->fetch_assoc()['total'];
 $revenueTotal = $revenueTotal ? $revenueTotal : 0; // Ensure it shows 0 if no payments
 
+//Get total expenses fromexpenses
+$expenseTotal = $conn->query("SELECT SUM(amount) AS total FROM expenses")->fetch_assoc()['total'];
+$expenseTotal = $expenseTotal ? $expenseTotal : 0; // Ensure it shows 0 if no payments
+
 // Get revenue data for chart
 $revenueData = $conn->query("
     SELECT DATE(payment_date) AS date, SUM(amount) AS total 
@@ -38,25 +42,25 @@ while ($row = $revenueData->fetch_assoc()) {
 
     <div class="row">
         <div class="col-md-3">
-            <div class="card bg-primary text-white p-3">
+            <div class="card bg-black text-white p-3">
                 <h4>Employees</h4>
                 <p>Total: <?php echo $employeeCount; ?></p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-success text-white p-3">
+            <div class="card bg-black text-white p-3">
                 <h4>Clients</h4>
                 <p>Total: <?php echo $clientCount; ?></p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-warning text-dark p-3">
+            <div class="card bg-black text-dark p-3">
                 <h4>Active Tasks</h4>
                 <p>Total: <?php echo $activeTaskCount; ?></p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-danger text-white p-3">
+            <div class="card bg-black text-white p-3">
                 <h4>Reminders</h4>
                 <p>Total: <?php echo $reminderCount; ?></p>
             </div>
@@ -65,9 +69,15 @@ while ($row = $revenueData->fetch_assoc()) {
 
     <div class="row mt-4">
         <div class="col-md-6">
-            <div class="card bg-info text-white p-3">
+            <div class="card bg-black text-white p-3">
                 <h4>Total Revenue</h4>
                 <p>$<?php echo number_format($revenueTotal, 2); ?></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-black text-white p-3">
+                <h4>Total Expenses</h4>
+                <p>$<?php echo number_format($expenseTotal, 2); ?></p>
             </div>
         </div>
     </div>
