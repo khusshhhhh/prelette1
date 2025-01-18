@@ -19,21 +19,23 @@ include 'db_connection.php'; ?>
         </thead>
         <tbody>
             <?php
-            $result = $conn->query("SELECT tasks.id, tasks.title, tasks.assigned_to, clients.name AS client, tasks.due_date, tasks.status 
+            $result = $conn->query("
+                SELECT tasks.id, tasks.title, employees.name AS employee, clients.name AS client, tasks.due_date, tasks.status 
                 FROM tasks 
-                JOIN clients ON tasks.client_id = clients.id");
+                LEFT JOIN employees ON tasks.assigned_employee_id = employees.id 
+                LEFT JOIN clients ON tasks.client_id = clients.id");
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
                     <td>{$row['id']}</td>
                     <td>{$row['title']}</td>
-                    <td>{$row['assigned_to']}</td>
+                    <td>{$row['employee']}</td>
                     <td>{$row['client']}</td>
                     <td>{$row['due_date']}</td>
                     <td>{$row['status']}</td>
                     <td>
                         <a href='crm_edit_task.php?id={$row['id']}' class='btn btn-warning btn-sm'>Edit</a>
-                        <a href='crm_delete_task.php?id={$row['id']}' class='btn btn-danger btn-sm'>Delete</a>
+                        <a href='crm_delete_task.php?id={$row['id']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure?\")'>Delete</a>
                     </td>
                 </tr>";
             }
