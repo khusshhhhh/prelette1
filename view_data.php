@@ -38,7 +38,7 @@ $result = $conn->query($sql);
         <div class="bg-dark text-white p-4 vh-100" style="width: 250px;">
             <h4 class="mb-4">Prelette</h4>
             <ul class="nav flex-column">
-                <li class="nav-item"><a href="index.html" class="nav-link text-white">Website</a></li>
+                <li class="nav-item"><a href="indexp.html" class="nav-link text-white">Website</a></li>
                 <li class="nav-item"><a href="view_data.php" class="nav-link text-white">View Data</a></li>
                 <li class="nav-item"><a href="#" class="nav-link text-white">Report</a></li>
                 <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>
