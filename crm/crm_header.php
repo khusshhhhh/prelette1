@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg py-5">
         <div class="container">
             <a class="navbar-brand btn btn-outline-primary text-white" href="crm_dashboard.php">Dashboard</a>
             <a class="navbar-brand btn btn-outline-primary text-white"

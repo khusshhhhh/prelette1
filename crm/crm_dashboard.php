@@ -54,7 +54,7 @@ while ($row = $revenueData->fetch_assoc()) {
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-black text-dark p-3">
+            <div class="card bg-black text-white p-3">
                 <h4>Active Tasks</h4>
                 <p>Total: <?php echo $activeTaskCount; ?></p>
             </div>
