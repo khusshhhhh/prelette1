@@ -9,13 +9,24 @@ if (!isset($_SESSION['username'])) {
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prelette | CRM</title>
     <link rel="shortcut icon" href="../assets/imgs/logo/fav.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Ensure the navbar sticks at the top */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg py-4">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg py-3">
         <div class="container">
             <a class="navbar-brand btn btn-outline-primary text-white" href="crm_dashboard.php">Dashboard</a>
             <a class="navbar-brand btn btn-outline-primary text-white"
@@ -29,8 +40,7 @@ if (!isset($_SESSION['username'])) {
                     <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
                             href="crm_employees.php">Employees</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
-                            href="crm_clients.php">Clients</a>
-                    </li>
+                            href="crm_clients.php">Clients</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
                             href="crm_tasks.php">Tasks</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-outline-info text-white"
