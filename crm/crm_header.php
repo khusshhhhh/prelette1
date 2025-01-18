@@ -25,17 +25,21 @@ if (!isset($_SESSION['username'])) {
 
         /* Restrict message column width & height */
         .message-column {
-            max-width: 250px;
+            max-width: 300px;
             overflow: hidden;
+            word-wrap: break-word;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
         .message-content {
-            max-height: 80px;
+            max-width: 300px;
+            max-height: 120px;
             /* Limit height */
-            overflow: auto;
-            white-space: pre-line;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-wrap: break-word;
+            white-space: normal;
         }
 
         /* Set fixed size for notes */
