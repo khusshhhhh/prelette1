@@ -1,4 +1,7 @@
-<?php include 'crm_header.php'; ?>
+<?php include 'crm_header.php';
+include 'crm_role_check.php';
+checkRole(['admin', 'manager']); ?>
+
 <div class="container mt-4">
     <h2>Employee Management</h2>
     <a href="crm_add_employee.php" class="btn btn-primary mb-3">Add Employee</a>
@@ -15,7 +18,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Fetch Employees -->
             <?php
             include 'db_connection.php';
             $result = $conn->query("SELECT * FROM employees");

@@ -1,4 +1,7 @@
-<?php include 'crm_header.php'; ?>
+<?php include 'crm_header.php';
+include 'crm_role_check.php';
+checkRole(['admin', 'manager', 'employee']); ?>
+
 <div class="container mt-4">
     <h2>Task Management</h2>
     <a href="crm_add_task.php" class="btn btn-primary mb-3">Add Task</a>
