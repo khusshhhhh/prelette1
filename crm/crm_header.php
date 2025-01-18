@@ -18,6 +18,8 @@ if (!isset($_SESSION['username'])) {
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand btn btn-outline-primary text-white" href="crm_dashboard.php">Dashboard</a>
+            <a class="navbar-brand btn btn-outline-primary text-white"
+                href="https://sg2plzcpnl505644.prod.sin2.secureserver.net:2083/cpsess1725572216/frontend/jupiter/index.html">cPanel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
