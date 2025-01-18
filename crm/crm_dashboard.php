@@ -42,25 +42,25 @@ while ($row = $revenueData->fetch_assoc()) {
 
     <div class="row">
         <div class="col-md-3">
-            <div class="card bg-black text-white p-3">
+            <div class="card bg-black text-white p-3 border-white">
                 <h4>Employees</h4>
                 <p>Total: <?php echo $employeeCount; ?></p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-black text-white p-3">
+            <div class="card bg-black text-white p-3 border-white">
                 <h4>Clients</h4>
                 <p>Total: <?php echo $clientCount; ?></p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-black text-white p-3">
+            <div class="card bg-black text-white p-3 border-white">
                 <h4>Active Tasks</h4>
                 <p>Total: <?php echo $activeTaskCount; ?></p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-black text-white p-3">
+            <div class="card bg-black text-white p-3 border-white">
                 <h4>Reminders</h4>
                 <p>Total: <?php echo $reminderCount; ?></p>
             </div>
@@ -69,13 +69,13 @@ while ($row = $revenueData->fetch_assoc()) {
 
     <div class="row mt-4">
         <div class="col-md-6">
-            <div class="card bg-black text-white p-3">
+            <div class="card bg-black text-white p-3 border-white">
                 <h4>Total Revenue</h4>
                 <p>$<?php echo number_format($revenueTotal, 2); ?></p>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card bg-black text-white p-3">
+            <div class="card bg-black text-white p-3 border-white">
                 <h4>Total Expenses</h4>
                 <p>$<?php echo number_format($expenseTotal, 2); ?></p>
             </div>
