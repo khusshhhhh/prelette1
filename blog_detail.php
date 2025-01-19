@@ -259,7 +259,7 @@ if (!$blog) {
                             <div class="section-header">
                                 <div class="section-title-wrapper">
                                     <div class="title-wrapper">
-                                        <h2 class="section-title has_fade_anim"><span>Get started</span> <br>
+                                        <h2 class="section-title has_text_move_anim"><span>Get started</span> <br>
                                             now</h2>
                                     </div>
                                 </div>
@@ -271,21 +271,21 @@ if (!$blog) {
                             </div>
                             <div class="footer-cta">
                                 <div class="footer-widget-wrapper">
-                                    <h2 class="title">London</h2>
+                                    <h2 class="title">Adelaide, AU</h2>
                                     <ul class="footer-nav-list">
-                                        <li>Baltia Squar, Mark Street, <br>
-                                            London</li>
+                                        <li>Grand Junction Rd, Wingfield <br>
+                                            SA 5013</li>
                                     </ul>
                                 </div>
                                 <div class="footer-widget-wrapper">
-                                    <h2 class="title">New York</h2>
+                                    <h2 class="title">Melbourne, AU</h2>
                                     <ul class="footer-nav-list">
-                                        <li>Nenuya Centre, Elia Street <br>
-                                            New York, USA</li>
+                                        <li>Grand Central Blvd, Pakenham <br>
+                                            VIC 3000</li>
                                     </ul>
                                 </div>
                                 <div class="footer-widget-wrapper newsletter">
-                                    <form action="#" class="subscribe-form">
+                                    <form action="submit.php" method="POST" class="subscribe-form">
                                         <div class="input-field">
                                             <input type="email" placeholder="Enter your email">
                                             <button type="submit" class="subscribe-btn"><img
@@ -301,14 +301,15 @@ if (!$blog) {
                             <div class="copyright-area-inner">
                                 <div class="copyright-text">
                                     <p class="text">© 2022 - 2025 | Alrights reserved <br>
-                                        by <a href="https://themeforest.net/user/crowdytheme"
-                                            target="_blank">crowdyTheme</a></p>
+                                        by prelette.com</a></p>
                                 </div>
                                 <ul class="footer-nav-list">
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="./about.html">About Us</a></li>
+                                    <li><a href="./portfolio-carousel.html">Portfolio</a></li>
+                                    <li><a href="./services.html">Our Services</a></li>
+                                    <li><a href="./contact.html">Contact</a></li>
+                                    <!-- <li><a href="#">Career</a></li> -->
                                     <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Career</a></li>
-                                    <li><a href="#">Sitemap</a></li>
                                 </ul>
                             </div>
                         </div>
