@@ -1,22 +1,24 @@
 <?php
 include 'db_connection.php';
 
-// Get SEO-friendly URL from the .htaccess rewrite
-if (isset($_GET['seo_url'])) {
-    $seo_url = $_GET['seo_url'];
+// Redirect if no SEO URL is provided
+if (!isset($_GET['seo_url']) || empty($_GET['seo_url'])) {
+    header("Location: blog.php");
+    exit();
+}
 
-    // Fetch blog details from the database
-    $stmt = $conn->prepare("SELECT * FROM blogs WHERE seo_url = ?");
-    $stmt->bind_param("s", $seo_url);
-    $stmt->execute();
-    $blog = $stmt->get_result()->fetch_assoc();
+$seo_url = $_GET['seo_url'];
 
-    // If no blog is found, show an error
-    if (!$blog) {
-        die("<h2>Blog not found</h2>");
-    }
-} else {
-    die("<h2>Invalid Blog URL</h2>");
+// Fetch blog details from the database
+$stmt = $conn->prepare("SELECT * FROM blogs WHERE seo_url = ?");
+$stmt->bind_param("s", $seo_url);
+$stmt->execute();
+$blog = $stmt->get_result()->fetch_assoc();
+
+// If no blog is found, show an error
+if (!$blog) {
+    echo "<h2>Sorry, this blog does not exist.</h2>";
+    exit();
 }
 ?>
 
@@ -27,9 +29,8 @@ if (isset($_GET['seo_url'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo htmlspecialchars($blog['paragraph1']); ?>">
+    <meta name="description" content="<?php echo substr(htmlspecialchars($blog['paragraph1']), 0, 150) . '...'; ?>">
     <title><?php echo htmlspecialchars($blog['title']); ?> | Prelette Blog</title>
-
     <!-- Your existing CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/all.min.css">
@@ -37,6 +38,7 @@ if (isset($_GET['seo_url'])) {
     <link rel="stylesheet" href="./assets/css/magnific-popup.css">
     <link rel="stylesheet" href="./assets/css/master-digital-agency.css">
     <link rel="stylesheet" href="./assets/css/master-blog-details.css">
+
 </head>
 
 <body class="font-heading-recoleta-medium">
@@ -175,8 +177,10 @@ if (isset($_GET['seo_url'])) {
                                 </div>
                                 <div class="blog-thumb overflow-hidden">
                                     <img class="w-100" data-speed="0.8"
-                                        src="<?php echo htmlspecialchars($blog['image1']); ?>" alt="image">
+                                        src="<?php echo !empty($blog['image1']) ? "/blogimg/" . htmlspecialchars($blog['image1']) : '/assets/imgs/default.jpg'; ?>"
+                                        alt="Blog Image">
                                 </div>
+
                                 <div class="blogdetails__wrapper">
                                     <div class="blogdetails-contentleft">
                                         <ul class="blogdetails-overview dark-overview has_fade_anim"
