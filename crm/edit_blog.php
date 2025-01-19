@@ -28,23 +28,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Generate SEO-friendly URL
     $seo_url = strtolower(str_replace(" ", "-", preg_replace("/[^a-zA-Z0-9\s]/", "", $title)));
 
-    // Handle Image Uploads
-    $target_dir = "blogimg/";
-    $image1 = $blog['image1']; // Default to existing image
-    $image2 = $blog['image2'];
-
-    if (!empty($_FILES["image1"]["name"])) {
-        $image1 = $target_dir . basename($_FILES["image1"]["name"]);
-        move_uploaded_file($_FILES["image1"]["tmp_name"], $image1);
-    }
-    if (!empty($_FILES["image2"]["name"])) {
-        $image2 = $target_dir . basename($_FILES["image2"]["name"]);
-        move_uploaded_file($_FILES["image2"]["tmp_name"], $image2);
-    }
+    // Use existing image URLs if no new ones are provided
+    $image_url1 = !empty($_POST["image_url1"]) ? $_POST["image_url1"] : $blog['image_url1'];
+    $image_url2 = !empty($_POST["image_url2"]) ? $_POST["image_url2"] : $blog['image_url2'];
 
     // Update the blog entry
-    $stmt = $conn->prepare("UPDATE blogs SET title=?, author=?, date=?, paragraph1=?, paragraph2=?, paragraph3=?, paragraph4=?, paragraph5=?, tag1=?, tag2=?, tag3=?, image1=?, image2=?, seo_url=? WHERE id=?");
-    $stmt->bind_param("ssssssssssssssi", $title, $author, $date, $paragraph1, $paragraph2, $paragraph3, $paragraph4, $paragraph5, $tag1, $tag2, $tag3, $image1, $image2, $seo_url, $id);
+    $stmt = $conn->prepare("UPDATE blogs 
+                            SET title=?, author=?, date=?, paragraph1=?, paragraph2=?, paragraph3=?, paragraph4=?, paragraph5=?, 
+                                tag1=?, tag2=?, tag3=?, image_url1=?, image_url2=?, seo_url=? 
+                            WHERE id=?");
+    $stmt->bind_param(
+        "ssssssssssssssi",
+        $title,
+        $author,
+        $date,
+        $paragraph1,
+        $paragraph2,
+        $paragraph3,
+        $paragraph4,
+        $paragraph5,
+        $tag1,
+        $tag2,
+        $tag3,
+        $image_url1,
+        $image_url2,
+        $seo_url,
+        $id
+    );
 
     if ($stmt->execute()) {
         header("Location: view_blog.php?msg=Blog updated successfully");
@@ -60,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<div class='alert alert-danger'>$error</div>";
     } ?>
 
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST">
         <div class="mb-3"><input type="text" name="title" class="form-control"
                 value="<?php echo htmlspecialchars($blog['title']); ?>" required></div>
         <div class="mb-3"><input type="text" name="author" class="form-control"
@@ -84,16 +94,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="mb-3"><input type="text" name="tag3" class="form-control"
                 value="<?php echo htmlspecialchars($blog['tag3']); ?>"></div>
 
+        <!-- Image 1 (Current and Input for New) -->
         <div class="mb-3">
             <label>Current Image 1:</label><br>
-            <img src="<?php echo $blog['image1']; ?>" width="150"><br>
-            <input type="file" name="image1" class="form-control">
+            <img src="<?php echo htmlspecialchars($blog['image_url1']); ?>" width="150"><br>
+            <input type="text" name="image_url1" class="form-control" placeholder="New ImageBB Link (Optional)">
         </div>
 
+        <!-- Image 2 (Current and Input for New) -->
         <div class="mb-3">
             <label>Current Image 2:</label><br>
-            <img src="<?php echo $blog['image2']; ?>" width="150"><br>
-            <input type="file" name="image2" class="form-control">
+            <img src="<?php echo htmlspecialchars($blog['image_url2']); ?>" width="150"><br>
+            <input type="text" name="image_url2" class="form-control" placeholder="New ImageBB Link (Optional)">
         </div>
 
         <button type="submit" class="btn btn-success">Update Blog</button>
