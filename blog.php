@@ -116,7 +116,7 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
   <!-- search modal end -->
 
   <!-- Header area start -->
-  <header class="header-area pos-abs zi-9">
+  <!-- <header class="header-area pos-abs zi-9">
     <div class="container container-large">
       <div class="header-area__inner">
         <div class="header__logo">
@@ -149,17 +149,13 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
           <a href="https://www.linkedin.com/company/prelette/" target="_blank" rel="noopener noreferrer"><i
               class="fa-brands fa-linkedin"></i></a>
         </div>
-        <div class="header__button d-none d-sm-inline-block">
-          <!-- <a href="contact.html" class="wc-btn wc-btn-primary btn-text-flip" data-bs-toggle="modal"
-            data-bs-target="#signupform"><span data-text="Get started">Get started</span></a> -->
-        </div>
         <div class="header__navicon d-xl-none">
           <button onclick="showCanvas3()" class="open-offcanvas">
             <i class="fa-solid fa-bars"></i></button>
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
   <!-- Header area end -->
 
   <div class="has-smooth" id="has_smooth"></div>
