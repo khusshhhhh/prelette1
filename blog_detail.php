@@ -31,12 +31,12 @@ if (isset($_GET['seo_url'])) {
     <title><?php echo htmlspecialchars($blog['title']); ?> | Prelette Blog</title>
 
     <!-- Your existing CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/master-digital-agency.css">
-    <link rel="stylesheet" href="assets/css/master-blog-details.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="./assets/css/master-digital-agency.css">
+    <link rel="stylesheet" href="./assets/css/master-blog-details.css">
 </head>
 
 <body class="font-heading-recoleta-medium">
