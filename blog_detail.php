@@ -30,7 +30,7 @@ if (!$blog) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo substr(htmlspecialchars($blog['paragraph1']), 0, 150) . '...'; ?>">
-    <title><?php echo htmlspecialchars($blog['title']); ?> | Prelette Blog</title>
+    <title><?php echo htmlspecialchars($blog['title']); ?></title>
     <!-- Your existing CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/all.min.css">
@@ -38,7 +38,7 @@ if (!$blog) {
     <link rel="stylesheet" href="./assets/css/magnific-popup.css">
     <link rel="stylesheet" href="./assets/css/master-digital-agency.css">
     <link rel="stylesheet" href="./assets/css/master-blog-details.css">
-
+    <link rel="shortcut icon" href="./assets/imgs/logo/fav.png" type="image/x-icon">
 </head>
 
 <body class="font-heading-recoleta-medium">
