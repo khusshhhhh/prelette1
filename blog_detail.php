@@ -202,7 +202,7 @@ if (!$blog) {
 
                                             <!-- Heading 1 & Paragraph 1 -->
                                             <?php if (!empty($blog['heading1'])): ?>
-                                                <h3 class="section-title has_fade_anim">
+                                                <h3 class="text has_fade_anim">
                                                     <?php echo htmlspecialchars($blog['heading1']); ?>
                                                 </h3>
                                             <?php endif; ?>
@@ -212,7 +212,7 @@ if (!$blog) {
 
                                             <!-- Heading 2 & Paragraph 2 -->
                                             <?php if (!empty($blog['heading2'])): ?>
-                                                <h3 class="section-title has_fade_anim">
+                                                <h3 class="text has_fade_anim">
                                                     <?php echo htmlspecialchars($blog['heading2']); ?>
                                                 </h3>
                                             <?php endif; ?>
@@ -230,7 +230,7 @@ if (!$blog) {
                                             <!-- Heading 3 & Paragraph 3 -->
                                             <div class="content-block">
                                                 <?php if (!empty($blog['heading3'])): ?>
-                                                    <h3 class="section-title has_fade_anim">
+                                                    <h3 class="text has_fade_anim">
                                                         <?php echo htmlspecialchars($blog['heading3']); ?>
                                                     </h3>
                                                 <?php endif; ?>
@@ -242,7 +242,7 @@ if (!$blog) {
                                             <!-- Heading 4 & Paragraph 4 -->
                                             <div class="content-block">
                                                 <?php if (!empty($blog['heading4'])): ?>
-                                                    <h3 class="section-title has_fade_anim">
+                                                    <h3 class="text has_fade_anim">
                                                         <?php echo htmlspecialchars($blog['heading4']); ?>
                                                     </h3>
                                                 <?php endif; ?>
@@ -253,7 +253,7 @@ if (!$blog) {
                                             <!-- Heading 5 & Paragraph 5 -->
                                             <div class="content-block">
                                                 <?php if (!empty($blog['heading5'])): ?>
-                                                    <h3 class="section-title has_fade_anim">
+                                                    <h3 class="text has_fade_anim">
                                                         <?php echo htmlspecialchars($blog['heading5']); ?>
                                                     </h3>
                                                 <?php endif; ?>
