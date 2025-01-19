@@ -1,3 +1,12 @@
+<?php
+include 'db_connection.php';
+
+// Count total blogs
+$totalBlogs = $conn->query("SELECT COUNT(*) as total FROM blogs")->fetch_assoc()['total'];
+$blogsPerPage = 10;
+$totalPages = ceil($totalBlogs / $blogsPerPage);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +16,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Optimize your business with advanced data analytics solutions tailored for industries like manufacturing, warehousing and logistics, mining, transportation, energy and utilities, and retail. Leverage predictive analytics, demand forecasting, and inventory management to enhance efficiency, reduce costs, and improve decision-making. Boost operational performance through real-time analytics, risk management, and supply chain optimization. From minimizing downtime with predictive maintenance to optimizing production cycles, our services empower businesses to achieve sustainable growth. Analyze customer behavior, streamline order management, and improve product quality while addressing dynamic market demands. Drive profitability with price optimization, eliminate bottlenecks in processes, and integrate automation and robotics for better productivity. Empower industries with actionable insights, ensuring competitive advantage and market sustainability.">
+  <meta name="keywords"
+    content="Data analytics services for manufacturing companies in Australia, Supply chain optimization data analysis Australia, Logistics data analytics agency in Australia, Warehouse management data solutions Australia, Mining operations data analytics consulting Australia, Retail and wholesale data-driven insights Australia, Data analyst agency for Australian businesses, Big data solutions for mining industries in Australia, Predictive analytics for warehousing in Australia, Logistics optimization through data analysis Australia, Data analytics for retail supply chain management, Custom data analysis for Australian wholesalers, Manufacturing performance analytics services Australia, Advanced data analytics for mining companies, Retail data visualization experts Australia, Data-driven logistics solutions for Australian businesses, Operational analytics for warehouses in Australia, Consulting agency for data analysis in mining sector, End-to-end data analytics for logistics companies, Actionable data insights for Australian retailers, Cloud-based data analysis for wholesale businesses, Data analytics for streamlining manufacturing processes, Supply chain analytics for retail and logistics in Australia, Mining data visualization and reporting services, Data consulting for Australian industrial operations">
 
-  <title>Prelette. Your Data & Web Partner in Australia</title>
+  <title>Prelette. Blog</title>
 
   <!-- Fav Icon -->
   <link rel="icon" type="image/x-icon" href="assets/imgs/logo/fav.png">
@@ -18,8 +29,8 @@
   <link rel="stylesheet" href="assets/css/all.min.css">
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
-  <link rel="stylesheet" href="assets/css/master-digital-agency.css">
-  <link rel="stylesheet" href="assets/css/master-blog-details.css">
+  <!-- <link rel="stylesheet" href="assets/css/master-digital-agency.css"> -->
+  <link rel="stylesheet" href="assets/css/master-blog.css">
 </head>
 
 <body class="font-heading-recoleta-medium">
@@ -55,7 +66,6 @@
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
     </svg>
   </div>
-
   <!-- offcanvas start  -->
   <div class="offcanvas-3__area">
     <div class="offcanvas-3__inner">
@@ -70,12 +80,12 @@
       <div class="offcanvas-3__menu-wrapper">
         <nav class="nav-menu offcanvas-3__menu">
           <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About Us</a></li>
-            <li><a href="./services.html">Services</a></li>
-            <li><a href="./blog.html">Blogs</a></li>
-            <li><a href="./portfolio-carousel.html">Portfolio</a></li>
-            <li><a href="./contact.html">Contact Us</a></li>
+            <li><a href="./indexp.html">Home</a></li>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./ourservices.html">Services</a></li>
+            <li><a href="./blog.php">Blogs</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+            <li><a href="./contactus.html">Contact Us</a></li>
           </ul>
         </nav>
       </div>
@@ -83,6 +93,23 @@
   </div>
   <!-- offcanvas end  -->
 
+
+  <!-- search modal start -->
+  <div class="modal fade" id="search-template" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="search-template" aria-hidden="true">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="#" class="form-search">
+            <input type="text" placeholder="Search">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- search modal end -->
 
   <!-- Header area start -->
   <header class="header-area pos-abs zi-9">
@@ -97,15 +124,21 @@
         <div class="header__nav pos-center">
           <nav class="main-menu">
             <ul>
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./services.html">Our Services</a></li>
-              <li><a href="./portfolio-carousel.html">Portfolio</a></li>
-              <li><a href="./blog.html">Blog</a></li>
-              <li><a href="./about.html">about us</a></li>
-              <!-- <li><a href="./blog.html">Blog</a></li> -->
-              <li><a href="./contact.html">Contact</a></li>
+              <li><a href="./indexp.html">Home</a></li>
+              <li><a href="./ourservices.html">Our Services</a></li>
+              <li><a href="./portfolio.html">Portfolio</a></li>
+              <li><a href="./blog.php" class="active-btn">Blog</a></li>
+              <li><a href="./aboutus.html">about us</a></li>
+              <!-- <li><a href="./blog.php">Blog</a></li> -->
+              <li><a href="./contactus.html">Contact</a></li>
             </ul>
           </nav>
+        </div>
+        <div class="design-std-btn">
+          <span class="mas">Design Studio<i class="fa-solid fa-arrow-up-from-bracket"
+              style="color: #000000;"></i></span>
+          <a href="designp.html"><button type="button" name="Hover">Design Studio<i
+                class="fa-solid fa-arrow-up-from-bracket" style="color: #000000;"></i></button></a>
         </div>
         <div class="social-btn" id="has-smooth">
           <a href="https://www.instagram.com/prelette.au/" target="_blank" rel="noopener noreferrer"><i
@@ -136,97 +169,90 @@
 
         <main>
 
-          <!-- blog details area start  -->
-          <section class="blog-details-area">
+          <!-- featured area start  -->
+          <section class="featured-area">
             <div class="container">
-              <div class="blog-details-area-inner">
-                <div class="section-header">
+              <div class="featured-area-inner">
+                <div class="section-content">
                   <div class="section-title-wrapper">
                     <div class="title-wrapper">
-                      <h1 class="section-title large has_fade_anim">Blog Main title goes here
-                      </h1>
+                      <h1 class="section-title large has_fade_anim">We always
+                        think</h1>
                     </div>
                   </div>
-                  <div class="meta-box has_fade_anim">
-                    <ul>
-                      <li>
-                        <span class="number">Author</span>
-                        <!-- <p class="text">Co-Founder, Prelette</p> -->
-                      </li>
-                      <li>
-                        <!-- <span class="number">01</span> -->
-                        <p class="text">Date</p>
-                      </li>
-                    </ul>
+                  <div class="text-box">
+                    <div class="text-wrapper">
+                      <!-- <p class="text has_fade_anim">Our blog delivers insightful, truthful, and accurate content,
+                        inspire, and engage readers with credibility.</p> -->
+                    </div>
+                    <div class="counter-box has_fade_anim">
+                      <div class="counter-item">
+                        <span class="number wc-counter">10 +</span>
+                        <p class="text">Total post</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="blog-thumb overflow-hidden">
-                  <img class="w-100" data-speed="0.8" src="assets/imgs/blog/blog1detail1.png" alt="image">
-                </div>
-                <div class="blogdetails__wrapper">
-                  <div class="blogdetails-contentleft">
-                    <ul class="blogdetails-overview dark-overview has_fade_anim" data-fade-from="left">
-                      <li>
-                        <i class="fa-solid fa-chart-simple"></i>
-                        <span>247 <br>
-                          Views </span>
-                      </li>
-                      <!-- <li>
-                        <i class="fa-solid fa-share-nodes"></i>
-                        <span>14 <br>
-                          Shares</span>
-                      </li> -->
-                      <!-- <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li> -->
-                      <!-- <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li> -->
-                      <li><a href="www.instagram.com/_khusshhhhh_" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-instagram"></i></a></li>
-                      <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                    </ul>
-                  </div>
 
-                  <div class="blogdetails-contentright">
-
-                    <article class="blog-details-fullBody">
-                      <div class="text-wrapper">
-                        <p class="text has_fade_anim"></p>
-                        <p class="text has_fade_anim"></p>
-                      </div>
-                      <div class="thumb overflow-hidden has_fade_anim">
-                        <img class="w-100" data-speed="0.8" src="assets/imgs/blog/blog1detail2.png" alt="image">
-                      </div>
-                      <div class="content-block">
-                        <div class="text-wrapper">
-                          <p class="text has_fade_anim"></p>
-                        </div>
-                      </div>
-                      <div class="content-block">
-                        <div class="text-wrapper">
-                          <p class="text has_fade_anim"></p>
-                        </div>
-                      </div>
-                      <div class="content-block">
-                        <div class="text-wrapper">
-                          <p class="text has_fade_anim"></p>
-                        </div>
-                      </div>
-                      <!-- <div class="thumb overflow-hidden">
-                        <img class="w-100" data-speed="0.8" src="assets/imgs/blog/img-s-28.webp" alt="image">
-                      </div> -->
-                      <div class="tagswrap has_fade_anim">
-                        <ul class="tags">
-                          <li><span>Tags:</span></li>
-                          <li><a href="#">tag1</a></li>
-                          <li><a href="#">tag2</a></li>
-                          <li><a href="#">tag3</a></li>
-                        </ul>
-                      </div>
-                    </article>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
-          <!-- blog details area end  -->
+          <!-- featured area end  -->
+          <!--BLOG MAIN AREA STARTS-->
+          <div class="featured-post-area">
+            <div class="container">
+              <div class="featured-post-box">
+                <div class="featured-posts">
+                  <article class="blog-box has_fade_anim">
+                    <a href="blog-details.html">
+                      <div class="thumb">
+                        <img src="assets/imgs/blog/blogmain1.png" alt="blog image">
+                      </div>
+                      <div class="content">
+                        <div class="content-first">
+                          <h2 class="title">Insights from Adelaide's Housing price</h2>
+                        </div>
+                        <div class="icon">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                  <article class="blog-box has_fade_anim" data-delay="0.30">
+                    <a href="blog-details.html">
+                      <div class="thumb">
+                        <img src="assets/imgs/blog/blogmain2.png" alt="blog image">
+                      </div>
+                      <div class="content">
+                        <div class="content-first">
+                          <h2 class="title">Building quality</h2>
+                        </div>
+                        <div class="icon">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                  <article class="blog-box has_fade_anim" data-delay="0.45" data-on-scroll="0">
+                    <a href="blog-details.html">
+                      <div class="thumb">
+                        <img src="assets/imgs/blog/blogmain3.png" alt="blog image">
+                      </div>
+                      <div class="content">
+                        <div class="content-first">
+                          <h2 class="title">Market research</h2>
+                        </div>
+                        <div class="icon">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--BLOG MAIN AREA ENDS-->
 
           <!-- blog area start  -->
           <section class="blog-area">
@@ -235,39 +261,29 @@
                 <div class="section-content">
                   <div class="section-title-wrapper">
                     <div class="title-wrapper">
-                      <h2 class="section-title has_fade_anim">Related articles</h2>
+                      <h2 class="section-title has_fade_anim">Latest
+                        Insights at
+                        Prelette!</h2>
                     </div>
+                  </div>
+                  <div class="text-wrapper">
+                    <p class="text has_fade_anim">Our blog delivers insightful, truthful, and accurate content, crafted
+                      to inform, inspire, and engage readers with utmost credibility.</p>
                   </div>
                 </div>
                 <div class="blogs-wrapper-box">
-                  <div class="blogs-wrapper has_fade_anim">
-                    <a href="blog-details.html">
-                      <div class="blog-box">
-                        <div class="content">
-                          <span class="number">01</span>
-                          <h3 class="title">random Blog goes here</h3>
-                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="blog-details.html">
-                      <div class="blog-box">
-                        <div class="content">
-                          <span class="number">02</span>
-                          <h3 class="title">random blog goes here</h3>
-                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="blog-details.html">
-                      <div class="blog-box">
-                        <div class="content">
-                          <span class="number">03</span>
-                          <h3 class="title">random blog goes here</h3>
-                          <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
-                        </div>
-                      </div>
-                    </a>
+                  <div class="blogs-wrapper has_fade_anim" id="blog-container">
+                    <!-- Blogs will be dynamically loaded here -->
+                  </div>
+
+                  <div class="pagination-box has_fade_anim">
+                    <ul class="pagination">
+                      <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
+                        <li>
+                          <a href="#" class="pagination-link" data-page="<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                      <?php } ?>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -288,7 +304,7 @@
               <div class="section-header">
                 <div class="section-title-wrapper">
                   <div class="title-wrapper">
-                    <h2 class="section-title has_fade_anim"><span>Get started</span> <br>
+                    <h2 class="section-title has_text_move_anim"><span>Get started</span> <br>
                       now</h2>
                   </div>
                 </div>
@@ -300,21 +316,21 @@
               </div>
               <div class="footer-cta">
                 <div class="footer-widget-wrapper">
-                  <h2 class="title">London</h2>
+                  <h2 class="title">Adelaide, AU</h2>
                   <ul class="footer-nav-list">
-                    <li>Baltia Squar, Mark Street, <br>
-                      London</li>
+                    <li>Grand Junction Rd, Wingfield <br>
+                      SA 5013</li>
                   </ul>
                 </div>
                 <div class="footer-widget-wrapper">
-                  <h2 class="title">New York</h2>
+                  <h2 class="title">Melbourne, AU</h2>
                   <ul class="footer-nav-list">
-                    <li>Nenuya Centre, Elia Street <br>
-                      New York, USA</li>
+                    <li>Grand Central Blvd, Pakenham <br>
+                      VIC 3000</li>
                   </ul>
                 </div>
                 <div class="footer-widget-wrapper newsletter">
-                  <form action="#" class="subscribe-form">
+                  <form action="submit.php" method="POST" class="subscribe-form">
                     <div class="input-field">
                       <input type="email" placeholder="Enter your email">
                       <button type="submit" class="subscribe-btn"><img src="assets/imgs/icon/arrow-light.webp"
@@ -330,13 +346,15 @@
               <div class="copyright-area-inner">
                 <div class="copyright-text">
                   <p class="text">© 2022 - 2025 | Alrights reserved <br>
-                    by <a href="https://themeforest.net/user/crowdytheme" target="_blank">crowdyTheme</a></p>
+                    by prelette.com</a></p>
                 </div>
                 <ul class="footer-nav-list">
-                  <li><a href="#">About Us</a></li>
+                  <li><a href="./about.html">About Us</a></li>
+                  <li><a href="./portfolio-carousel.html">Portfolio</a></li>
+                  <li><a href="./services.html">Our Services</a></li>
+                  <li><a href="./contact.html">Contact</a></li>
+                  <!-- <li><a href="#">Career</a></li> -->
                   <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Career</a></li>
-                  <li><a href="#">Sitemap</a></li>
                 </ul>
               </div>
             </div>
@@ -367,7 +385,30 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/error-handling.js"></script>
   <script src="assets/js/offcanvas.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      function loadBlogs(page) {
+        $.ajax({
+          url: "fetch_blogs.php",
+          type: "GET",
+          data: { page: page },
+          success: function (data) {
+            $("#blog-container").html(data);
+          }
+        });
+      }
 
+      // Load first page by default
+      loadBlogs(1);
+
+      $(".pagination-link").click(function (e) {
+        e.preventDefault();
+        let page = $(this).data("page");
+        loadBlogs(page);
+      });
+    });
+  </script>
   <script>
 
     // testimonial slider
