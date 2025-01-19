@@ -19,18 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $seo_url = strtolower(str_replace(" ", "-", preg_replace("/[^a-zA-Z0-9\s]/", "", $title)));
 
     // Convert Google Drive Links to Direct Links
-    function convertGoogleDriveLink($input_link)
-    {
-        if (strpos($input_link, 'drive.google.com') !== false) {
-            preg_match('/\/d\/(.*?)\//', $input_link, $matches);
-            return isset($matches[1]) ? "https://drive.google.com/uc?export=view&id=" . $matches[1] : $input_link;
-        }
-        return $input_link;
-    }
 
     // Get Image URLs from form
-    $image1 = convertGoogleDriveLink($_POST["image1"]);
-    $image2 = convertGoogleDriveLink($_POST["image2"]);
+    $image1 = $_POST["image1"];
+    $image2 = $_POST["image2"];
 
     // Insert into database
     $stmt = $conn->prepare("INSERT INTO blogs (title, author, date, paragraph1, paragraph2, paragraph3, paragraph4, paragraph5, tag1, tag2, tag3, image_url1, image_url2, seo_url) 
