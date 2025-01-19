@@ -116,7 +116,7 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
   <!-- search modal end -->
 
   <!-- Header area start -->
-  <!-- <header class="header-area pos-abs zi-9">
+  <header class="header-area pos-abs zi-9">
     <div class="container container-large">
       <div class="header-area__inner">
         <div class="header__logo">
@@ -155,7 +155,7 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
         </div>
       </div>
     </div>
-  </header> -->
+  </header>
   <!-- Header area end -->
 
   <div class="has-smooth" id="has_smooth"></div>

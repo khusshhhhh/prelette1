@@ -105,7 +105,7 @@ if (!$blog) {
     </div>
     <!-- offcanvas end  -->
 
-    <header class="header-area pos-abs zi-9">
+    <!-- <header class="header-area pos-abs zi-9">
         <div class="container container-large">
             <div class="header-area__inner">
                 <div class="header__logo">
@@ -132,17 +132,13 @@ if (!$blog) {
                     <a href="https://www.linkedin.com/company/prelette/" target="_blank" rel="noopener noreferrer"><i
                             class="fa-brands fa-linkedin"></i></a>
                 </div>
-                <div class="header__button d-none d-sm-inline-block">
-                    <!-- <a href="contact.html" class="wc-btn wc-btn-primary btn-text-flip" data-bs-toggle="modal"
-            data-bs-target="#signupform"><span data-text="Get started">Get started</span></a> -->
-                </div>
                 <div class="header__navicon d-xl-none">
                     <button onclick="showCanvas3()" class="open-offcanvas">
                         <i class="fa-solid fa-bars"></i></button>
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <div class="has-smooth" id="has_smooth"></div>
     <div id="smooth-wrapper">
@@ -252,7 +248,7 @@ if (!$blog) {
                         </div>
                     </section>
                 </main>
-                <footer class="footer-area">
+                <footer class="footer-area" style="margin-top: 100px">
                     <div class="container">
                         <div class="footer-area-inner section-spacing-top">
                             <div class="shape-1">
