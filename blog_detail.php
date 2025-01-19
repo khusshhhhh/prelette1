@@ -151,13 +151,13 @@ if (!$blog) {
                 <main>
 
                     <!-- Blog Details Section -->
-                    <section class="blog-details-area">
+                    <section class="blog-details-area" style="margin-top: -50px;">
                         <div class="container">
                             <div class="blog-details-area-inner">
                                 <div class="section-header">
                                     <div class="section-title-wrapper">
                                         <div class="title-wrapper">
-                                            <h1 class="section-title has_fade_anim" style="font-size: 90px">
+                                            <h1 class="section-title has_fade_anim" style="font-size: 70px;">
                                                 <?php echo htmlspecialchars($blog['title']); ?>
                                             </h1>
                                         </div>
@@ -286,7 +286,7 @@ if (!$blog) {
                         </div>
                     </section>
                 </main>
-                <footer class="footer-area" style="margin-top: 100px">
+                <footer class="footer-area">
                     <div class="container">
                         <div class="footer-area-inner section-spacing-top">
                             <div class="shape-1">
@@ -294,12 +294,6 @@ if (!$blog) {
                                 <img class="show-dark" src="assets/imgs/shape/img-s-33-light.webp" alt="shape">
                             </div>
                             <div class="section-header">
-                                <div class="section-title-wrapper">
-                                    <div class="title-wrapper">
-                                        <h2 class="section-title has_text_move_anim"><span>Get started</span> <br>
-                                            now</h2>
-                                    </div>
-                                </div>
                                 <div class="text-wrapper">
                                     <p class="text has_fade_anim">If you would like to work with us or
                                         just want to get in touch, we’d love
@@ -321,15 +315,6 @@ if (!$blog) {
                                             VIC 3000</li>
                                     </ul>
                                 </div>
-                                <div class="footer-widget-wrapper newsletter">
-                                    <form action="submit.php" method="POST" class="subscribe-form">
-                                        <div class="input-field">
-                                            <input type="email" placeholder="Enter your email">
-                                            <button type="submit" class="subscribe-btn"><img
-                                                    src="assets/imgs/icon/arrow-light.webp" alt="icon"></button>
-                                        </div>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -338,16 +323,8 @@ if (!$blog) {
                             <div class="copyright-area-inner">
                                 <div class="copyright-text">
                                     <p class="text">© 2022 - 2025 | Alrights reserved <br>
-                                        by prelette.com</a></p>
+                                        by prelette.com</p>
                                 </div>
-                                <ul class="footer-nav-list">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./portfolio-carousel.html">Portfolio</a></li>
-                                    <li><a href="./services.html">Our Services</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
-                                    <!-- <li><a href="#">Career</a></li> -->
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
