@@ -88,12 +88,16 @@ if (!$blog) {
             <div class="offcanvas-3__menu-wrapper">
                 <nav class="nav-menu offcanvas-3__menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./about.html">About Us</a></li>
-                        <li><a href="./services.html">Services</a></li>
-                        <li><a href="./blog.html">Blogs</a></li>
-                        <li><a href="./portfolio-carousel.html">Portfolio</a></li>
-                        <li><a href="./contact.html">Contact Us</a></li>
+                        <li><a href="./indexp.html">Home</a></li>
+                        <li><a href="./aboutus.html">About Us</a></li>
+                        <li><a href="./ourservices.html">Services</a></li>
+                        <li><a href="./blog.php">Blogs</a></li>
+                        <li><a href="./portfolio.html">Portfolio</a></li>
+                        <li><a href="./contactus.html">Contact Us</a></li>
+                        <li><a href="https://www.instagram.com/prelette.au/" target="_blank"
+                                rel="noopener noreferrer"><i class="fa-brands fa-square-instagram"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/prelette/" target="_blank"
+                                rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a></li>
                     </ul>
                 </nav>
             </div>
@@ -116,9 +120,8 @@ if (!$blog) {
                             <li><a href="./index.html">Home</a></li>
                             <li><a href="./services.html">Our Services</a></li>
                             <li><a href="./portfolio-carousel.html">Portfolio</a></li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./blog.php" class="active-btn">Blog</a></li>
                             <li><a href="./about.html">about us</a></li>
-                            <!-- <li><a href="./blog.html">Blog</a></li> -->
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>

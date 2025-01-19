@@ -22,7 +22,7 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
   <title>Prelette. Blog</title>
 
   <!-- Fav Icon -->
-  <link rel="icon" type="image/x-icon" href="assets/imgs/logo/fav.png">
+  <link rel="icon" type="image/x-icon" href="./assets/imgs/logo/fav.png">
 
   <!-- All CSS files -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -86,6 +86,10 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
             <li><a href="./blog.php">Blogs</a></li>
             <li><a href="./portfolio.html">Portfolio</a></li>
             <li><a href="./contactus.html">Contact Us</a></li>
+            <li><a href="https://www.instagram.com/prelette.au/" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-square-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/prelette/" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-linkedin"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -129,7 +133,6 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
               <li><a href="./portfolio.html">Portfolio</a></li>
               <li><a href="./blog.php" class="active-btn">Blog</a></li>
               <li><a href="./aboutus.html">about us</a></li>
-              <!-- <li><a href="./blog.php">Blog</a></li> -->
               <li><a href="./contactus.html">Contact</a></li>
             </ul>
           </nav>
