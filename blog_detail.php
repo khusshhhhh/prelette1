@@ -323,56 +323,49 @@ if (!$blog) {
 
 
     <!-- All JS files -->
+    <!-- Load jQuery First -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- Essential Scripts -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/counter.js"></script>
-    <script src="assets/js/progressbar.js"></script>
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/ScrollSmoother.min.js"></script>
-    <script src="assets/js/ScrollToPlugin.min.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <script src="assets/js/SplitText.min.js"></script>
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/backToTop.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/error-handling.js"></script>
     <script src="assets/js/offcanvas.js"></script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("All scripts are ready!");
 
-        // testimonial slider
-        if (('.testimonial-slider').length) {
-            var testimonial_slider = new Swiper(".testimonial-slider", {
-                loop: false,
-                slidesPerView: 1,
-                spaceBetween: 60,
-                speed: 1800,
-                watchSlidesProgress: true,
-                navigation: {
-                    prevEl: ".testimonial-button-prev",
-                    nextEl: ".testimonial-button-next",
-                },
-            });
-        }
+            // Testimonial Slider (Check if it exists first)
+            if (document.querySelector('.testimonial-slider')) {
+                var testimonial_slider = new Swiper(".testimonial-slider", {
+                    loop: false,
+                    slidesPerView: 1,
+                    spaceBetween: 60,
+                    speed: 1800,
+                    watchSlidesProgress: true,
+                    navigation: {
+                        prevEl: ".testimonial-button-prev",
+                        nextEl: ".testimonial-button-next",
+                    },
+                });
+            }
 
-
-        // client slider 
-        if ('.client-slider-active') {
-            var client_slider_active = new Swiper(".client-slider-active", {
-                slidesPerView: 'auto',
-                loop: true,
-                autoplay: true,
-                spaceBetween: 130,
-                speed: 3000,
-                autoplay: {
-                    delay: 1,
-                },
-            });
-        }
-
+            // Client Slider (Check if it exists first)
+            if (document.querySelector('.client-slider-active')) {
+                var client_slider_active = new Swiper(".client-slider-active", {
+                    slidesPerView: 'auto',
+                    loop: true,
+                    autoplay: { delay: 3000 },
+                    spaceBetween: 130,
+                    speed: 3000
+                });
+            }
+        });
     </script>
+
 
 </body>
 
