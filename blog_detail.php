@@ -207,7 +207,7 @@ if (!$blog) {
                                                 </h3>
                                             <?php endif; ?>
                                             <p class="text has_fade_anim"
-                                                style="line-height: 1.5rem; color: #555; font-size: 20px;">
+                                                style="line-height: 1.65rem; color: #555; font-size: 20px;">
                                                 <?php echo nl2br(htmlspecialchars($blog['paragraph1'])); ?>
                                             </p>
 
@@ -218,7 +218,7 @@ if (!$blog) {
                                                 </h3>
                                             <?php endif; ?>
                                             <p class="text has_fade_anim"
-                                                style="line-height: 1.5rem; color: #555; font-size: 20px;">
+                                                style="line-height: 1.65rem; color: #555; font-size: 20px;">
                                                 <?php echo nl2br(htmlspecialchars($blog['paragraph2'])); ?>
                                             </p>
 
@@ -238,7 +238,7 @@ if (!$blog) {
                                                     </h3>
                                                 <?php endif; ?>
                                                 <p class="text has_fade_anim"
-                                                    style="line-height: 1.5rem; color: #555; font-size: 20px;">
+                                                    style="line-height: 1.65rem; color: #555; font-size: 20px;">
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph3'])); ?>
                                                 </p>
                                             </div>
@@ -252,7 +252,7 @@ if (!$blog) {
                                                     </h3>
                                                 <?php endif; ?>
                                                 <p class="text has_fade_anim"
-                                                    style="line-height: 1.5rem; color: #555; font-size: 20px;">
+                                                    style="line-height: 1.65rem; color: #555; font-size: 20px;">
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph4'])); ?>
                                                 </p>
                                             </div>
@@ -265,7 +265,7 @@ if (!$blog) {
                                                     </h3>
                                                 <?php endif; ?>
                                                 <p class="text has_fade_anim"
-                                                    style="line-height: 1.5rem; color: #555; font-size: 20px;">
+                                                    style="line-height: 1.65rem; color: #555; font-size: 20px;">
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph5'])); ?>
                                                 </p>
                                             </div>
