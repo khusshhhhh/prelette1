@@ -198,7 +198,7 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
           </section>
           <!-- featured area end  -->
           <!--BLOG MAIN AREA STARTS-->
-          <div class="featured-post-area">
+          <!-- <div class="featured-post-area">
             <div class="container">
               <div class="featured-post-box">
                 <div class="featured-posts">
@@ -250,7 +250,7 @@ $totalPages = ceil($totalBlogs / $blogsPerPage);
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!--BLOG MAIN AREA ENDS-->
 
           <!-- blog area start  -->

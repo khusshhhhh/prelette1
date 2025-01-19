@@ -16,14 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $author = $_POST['author'];
     $date = $_POST['date'];
-    $paragraph1 = $_POST['paragraph1'];
-    $paragraph2 = $_POST['paragraph2'];
-    $paragraph3 = $_POST['paragraph3'];
-    $paragraph4 = $_POST['paragraph4'];
-    $paragraph5 = $_POST['paragraph5'];
-    $tag1 = $_POST['tag1'];
-    $tag2 = $_POST['tag2'];
-    $tag3 = $_POST['tag3'];
+
+    $heading1 = $_POST['heading1'] ?? null;
+    $paragraph1 = $_POST['paragraph1'] ?? null;
+    $heading2 = $_POST['heading2'] ?? null;
+    $paragraph2 = $_POST['paragraph2'] ?? null;
+    $heading3 = $_POST['heading3'] ?? null;
+    $paragraph3 = $_POST['paragraph3'] ?? null;
+    $heading4 = $_POST['heading4'] ?? null;
+    $paragraph4 = $_POST['paragraph4'] ?? null;
+    $heading5 = $_POST['heading5'] ?? null;
+    $paragraph5 = $_POST['paragraph5'] ?? null;
+
+    $tag1 = $_POST['tag1'] ?? null;
+    $tag2 = $_POST['tag2'] ?? null;
+    $tag3 = $_POST['tag3'] ?? null;
 
     // Generate SEO-friendly URL
     $seo_url = strtolower(str_replace(" ", "-", preg_replace("/[^a-zA-Z0-9\s]/", "", $title)));
@@ -31,27 +38,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Use existing image URLs if no new ones are provided
     $image_url1 = !empty($_POST["image_url1"]) ? $_POST["image_url1"] : $blog['image_url1'];
     $image_url2 = !empty($_POST["image_url2"]) ? $_POST["image_url2"] : $blog['image_url2'];
+    $image_url3 = !empty($_POST["image_url3"]) ? $_POST["image_url3"] : $blog['image_url3'];
 
     // Update the blog entry
     $stmt = $conn->prepare("UPDATE blogs 
-                            SET title=?, author=?, date=?, paragraph1=?, paragraph2=?, paragraph3=?, paragraph4=?, paragraph5=?, 
-                                tag1=?, tag2=?, tag3=?, image_url1=?, image_url2=?, seo_url=? 
+                            SET title=?, author=?, date=?, heading1=?, paragraph1=?, heading2=?, paragraph2=?, heading3=?, paragraph3=?, heading4=?, paragraph4=?, heading5=?, paragraph5=?, 
+                                tag1=?, tag2=?, tag3=?, image_url1=?, image_url2=?, image_url3=?, seo_url=? 
                             WHERE id=?");
     $stmt->bind_param(
-        "ssssssssssssssi",
+        "ssssssssssssssssssssi",
         $title,
         $author,
         $date,
+        $heading1,
         $paragraph1,
+        $heading2,
         $paragraph2,
+        $heading3,
         $paragraph3,
+        $heading4,
         $paragraph4,
+        $heading5,
         $paragraph5,
         $tag1,
         $tag2,
         $tag3,
         $image_url1,
         $image_url2,
+        $image_url3,
         $seo_url,
         $id
     );
@@ -77,16 +91,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 value="<?php echo htmlspecialchars($blog['author']); ?>" required></div>
         <div class="mb-3"><input type="date" name="date" class="form-control" value="<?php echo $blog['date']; ?>"
                 required></div>
-        <div class="mb-3"><textarea name="paragraph1" class="form-control"
-                required><?php echo htmlspecialchars($blog['paragraph1']); ?></textarea></div>
-        <div class="mb-3"><textarea name="paragraph2" class="form-control"
-                required><?php echo htmlspecialchars($blog['paragraph2']); ?></textarea></div>
+
+        <div class="mb-3"><input type="text" name="heading1" class="form-control"
+                value="<?php echo htmlspecialchars($blog['heading1']); ?>" placeholder="Heading 1"></div>
+        <div class="mb-3"><textarea name="paragraph1"
+                class="form-control"><?php echo htmlspecialchars($blog['paragraph1']); ?></textarea></div>
+        <div class="mb-3"><input type="text" name="heading2" class="form-control"
+                value="<?php echo htmlspecialchars($blog['heading2']); ?>" placeholder="Heading 2"></div>
+        <div class="mb-3"><textarea name="paragraph2"
+                class="form-control"><?php echo htmlspecialchars($blog['paragraph2']); ?></textarea></div>
+        <div class="mb-3"><input type="text" name="heading3" class="form-control"
+                value="<?php echo htmlspecialchars($blog['heading3']); ?>" placeholder="Heading 3"></div>
         <div class="mb-3"><textarea name="paragraph3"
                 class="form-control"><?php echo htmlspecialchars($blog['paragraph3']); ?></textarea></div>
+        <div class="mb-3"><input type="text" name="heading4" class="form-control"
+                value="<?php echo htmlspecialchars($blog['heading4']); ?>" placeholder="Heading 4"></div>
         <div class="mb-3"><textarea name="paragraph4"
                 class="form-control"><?php echo htmlspecialchars($blog['paragraph4']); ?></textarea></div>
+        <div class="mb-3"><input type="text" name="heading5" class="form-control"
+                value="<?php echo htmlspecialchars($blog['heading5']); ?>" placeholder="Heading 5"></div>
         <div class="mb-3"><textarea name="paragraph5"
                 class="form-control"><?php echo htmlspecialchars($blog['paragraph5']); ?></textarea></div>
+
         <div class="mb-3"><input type="text" name="tag1" class="form-control"
                 value="<?php echo htmlspecialchars($blog['tag1']); ?>"></div>
         <div class="mb-3"><input type="text" name="tag2" class="form-control"
@@ -106,6 +132,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label>Current Image 2:</label><br>
             <img src="<?php echo htmlspecialchars($blog['image_url2']); ?>" width="150"><br>
             <input type="text" name="image_url2" class="form-control" placeholder="New ImageBB Link (Optional)">
+        </div>
+
+        <!-- Image 3 (Current and Input for New) -->
+        <div class="mb-3">
+            <label>Current Image 3:</label><br>
+            <img src="<?php echo htmlspecialchars($blog['image_url3']); ?>" width="150"><br>
+            <input type="text" name="image_url3" class="form-control" placeholder="New ImageBB Link (Optional)">
         </div>
 
         <button type="submit" class="btn btn-success">Update Blog</button>

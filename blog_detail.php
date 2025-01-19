@@ -174,13 +174,13 @@ if (!$blog) {
                                         </ul>
                                     </div>
                                 </div>
+
                                 <!-- Image 1 -->
                                 <div class="blog-thumb overflow-hidden">
                                     <img class="w-100" data-speed="0.8"
                                         src="<?php echo !empty($blog['image_url1']) ? htmlspecialchars($blog['image_url1']) : '/assets/imgs/default.jpg'; ?>"
                                         alt="Blog Image">
                                 </div>
-
 
                                 <div class="blogdetails__wrapper">
                                     <div class="blogdetails-contentleft">
@@ -199,14 +199,27 @@ if (!$blog) {
 
                                     <div class="blogdetails-contentright">
                                         <article class="blog-details-fullBody">
-                                            <div class="text-wrapper">
-                                                <p class="text has_fade_anim">
-                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph1'])); ?>
-                                                </p>
-                                                <p class="text has_fade_anim">
-                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph2'])); ?>
-                                                </p>
-                                            </div>
+
+                                            <!-- Heading 1 & Paragraph 1 -->
+                                            <?php if (!empty($blog['heading1'])): ?>
+                                                <h3 class="section-title has_fade_anim">
+                                                    <?php echo htmlspecialchars($blog['heading1']); ?>
+                                                </h3>
+                                            <?php endif; ?>
+                                            <p class="text has_fade_anim">
+                                                <?php echo nl2br(htmlspecialchars($blog['paragraph1'])); ?>
+                                            </p>
+
+                                            <!-- Heading 2 & Paragraph 2 -->
+                                            <?php if (!empty($blog['heading2'])): ?>
+                                                <h3 class="section-title has_fade_anim">
+                                                    <?php echo htmlspecialchars($blog['heading2']); ?>
+                                                </h3>
+                                            <?php endif; ?>
+                                            <p class="text has_fade_anim">
+                                                <?php echo nl2br(htmlspecialchars($blog['paragraph2'])); ?>
+                                            </p>
+
                                             <!-- Image 2 -->
                                             <div class="thumb overflow-hidden has_fade_anim">
                                                 <img class="w-100" data-speed="0.8"
@@ -214,27 +227,47 @@ if (!$blog) {
                                                     alt="Blog Image">
                                             </div>
 
+                                            <!-- Heading 3 & Paragraph 3 -->
                                             <div class="content-block">
-                                                <div class="text-wrapper">
-                                                    <p class="text has_fade_anim">
-                                                        <?php echo nl2br(htmlspecialchars($blog['paragraph3'])); ?>
-                                                    </p>
-                                                </div>
+                                                <?php if (!empty($blog['heading3'])): ?>
+                                                    <h3 class="section-title has_fade_anim">
+                                                        <?php echo htmlspecialchars($blog['heading3']); ?>
+                                                    </h3>
+                                                <?php endif; ?>
+                                                <p class="text has_fade_anim">
+                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph3'])); ?>
+                                                </p>
                                             </div>
+
+                                            <!-- Heading 4 & Paragraph 4 -->
                                             <div class="content-block">
-                                                <div class="text-wrapper">
-                                                    <p class="text has_fade_anim">
-                                                        <?php echo nl2br(htmlspecialchars($blog['paragraph4'])); ?>
-                                                    </p>
-                                                </div>
+                                                <?php if (!empty($blog['heading4'])): ?>
+                                                    <h3 class="section-title has_fade_anim">
+                                                        <?php echo htmlspecialchars($blog['heading4']); ?>
+                                                    </h3>
+                                                <?php endif; ?>
+                                                <p class="text has_fade_anim">
+                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph4'])); ?>
+                                                </p>
                                             </div>
+                                            <!-- Heading 5 & Paragraph 5 -->
                                             <div class="content-block">
-                                                <div class="text-wrapper">
-                                                    <p class="text has_fade_anim">
-                                                        <?php echo nl2br(htmlspecialchars($blog['paragraph5'])); ?>
-                                                    </p>
-                                                </div>
+                                                <?php if (!empty($blog['heading5'])): ?>
+                                                    <h3 class="section-title has_fade_anim">
+                                                        <?php echo htmlspecialchars($blog['heading5']); ?>
+                                                    </h3>
+                                                <?php endif; ?>
+                                                <p class="text has_fade_anim">
+                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph5'])); ?>
+                                                </p>
                                             </div>
+                                            <!-- Image 3 (Last Image) -->
+                                            <div class="thumb overflow-hidden has_fade_anim">
+                                                <img class="w-100" data-speed="0.8"
+                                                    src="<?php echo !empty($blog['image_url3']) ? htmlspecialchars($blog['image_url3']) : '/assets/imgs/default.jpg'; ?>"
+                                                    alt="Blog Image">
+                                            </div>
+                                            <!-- Tags Section -->
                                             <div class="tagswrap has_fade_anim">
                                                 <ul class="tags">
                                                     <li><span>Tags:</span></li>
