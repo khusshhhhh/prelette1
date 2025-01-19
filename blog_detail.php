@@ -157,7 +157,7 @@ if (!$blog) {
                                 <div class="section-header">
                                     <div class="section-title-wrapper">
                                         <div class="title-wrapper">
-                                            <h1 class="section-title has_fade_anim" style="font-size: 70px;">
+                                            <h1 class="section-title has_fade_anim" style="font-size: 60px;">
                                                 <?php echo htmlspecialchars($blog['title']); ?>
                                             </h1>
                                         </div>
@@ -202,21 +202,23 @@ if (!$blog) {
 
                                             <!-- Heading 1 & Paragraph 1 -->
                                             <?php if (!empty($blog['heading1'])): ?>
-                                                <h3 class="text has_fade_anim" style="margin-top: 30px; ">
+                                                <h3 class="text has_fade_anim" style="margin-top: 30px; margin-bottom: 8px">
                                                     <?php echo htmlspecialchars($blog['heading1']); ?>
                                                 </h3>
                                             <?php endif; ?>
-                                            <p class="text has_fade_anim">
+                                            <p class="text has_fade_anim"
+                                                style="line-height: 1.2rem; color: #333; font-size: 24px;">
                                                 <?php echo nl2br(htmlspecialchars($blog['paragraph1'])); ?>
                                             </p>
 
                                             <!-- Heading 2 & Paragraph 2 -->
                                             <?php if (!empty($blog['heading2'])): ?>
-                                                <h3 class="text has_fade_anim" style="margin-top: 30px; ">
+                                                <h3 class="text has_fade_anim" style="margin-top: 30px; margin-bottom: 8px">
                                                     <?php echo htmlspecialchars($blog['heading2']); ?>
                                                 </h3>
                                             <?php endif; ?>
-                                            <p class="text has_fade_anim">
+                                            <p class="text has_fade_anim"
+                                                style="line-height: 1.2rem; color: #333; font-size: 24px;">
                                                 <?php echo nl2br(htmlspecialchars($blog['paragraph2'])); ?>
                                             </p>
 
@@ -230,11 +232,13 @@ if (!$blog) {
                                             <!-- Heading 3 & Paragraph 3 -->
                                             <div class="content-block">
                                                 <?php if (!empty($blog['heading3'])): ?>
-                                                    <h3 class="text has_fade_anim" style="margin-top: 30px; ">
+                                                    <h3 class="text has_fade_anim"
+                                                        style="margin-top: 30px; margin-bottom: 8px">
                                                         <?php echo htmlspecialchars($blog['heading3']); ?>
                                                     </h3>
                                                 <?php endif; ?>
-                                                <p class="text has_fade_anim">
+                                                <p class="text has_fade_anim"
+                                                    style="line-height: 1.2rem; color: #333; font-size: 24px;">
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph3'])); ?>
                                                 </p>
                                             </div>
@@ -242,22 +246,26 @@ if (!$blog) {
                                             <!-- Heading 4 & Paragraph 4 -->
                                             <div class="content-block">
                                                 <?php if (!empty($blog['heading4'])): ?>
-                                                    <h3 class="text has_fade_anim" style="margin-top: 30px; ">
+                                                    <h3 class="text has_fade_anim"
+                                                        style="margin-top: 30px; margin-bottom: 8px">
                                                         <?php echo htmlspecialchars($blog['heading4']); ?>
                                                     </h3>
                                                 <?php endif; ?>
-                                                <p class="text has_fade_anim">
+                                                <p class="text has_fade_anim"
+                                                    style="line-height: 1.2rem; color: #333; font-size: 24px;">
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph4'])); ?>
                                                 </p>
                                             </div>
                                             <!-- Heading 5 & Paragraph 5 -->
                                             <div class="content-block">
                                                 <?php if (!empty($blog['heading5'])): ?>
-                                                    <h3 class="text has_fade_anim" style="margin-top: 30px; ">
+                                                    <h3 class="text has_fade_anim"
+                                                        style="margin-top: 30px; margin-bottom: 8px">
                                                         <?php echo htmlspecialchars($blog['heading5']); ?>
                                                     </h3>
                                                 <?php endif; ?>
-                                                <p class="text has_fade_anim">
+                                                <p class="text has_fade_anim"
+                                                    style="line-height: 1.2rem; color: #333; font-size: 24px;">
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph5'])); ?>
                                                 </p>
                                             </div>
@@ -286,7 +294,7 @@ if (!$blog) {
                         </div>
                     </section>
                 </main>
-                <footer class="footer-area">
+                <footer class="footer-area" style="margin-top: 60px">
                     <div class="container">
                         <div class="footer-area-inner section-spacing-top">
                             <div class="shape-1">
