@@ -174,10 +174,11 @@ if (!$blog) {
                                         </ul>
                                     </div>
                                 </div>
+                                <!-- Image 1 -->
                                 <div class="blog-thumb overflow-hidden">
                                     <img class="w-100" data-speed="0.8"
-                                        src="<?php echo !empty($blog['image1']) ? "/blogimg/" . htmlspecialchars($blog['image1']) : '/assets/imgs/default.jpg'; ?>"
-                                        alt="Blog Image">
+                                        src="<?php echo !empty($blog['image_url1']) ? htmlspecialchars($blog['image_url1']) : '/assets/imgs/default.jpg'; ?>"
+                                        alt="Blog Image 1">
                                 </div>
 
                                 <div class="blogdetails__wrapper">
@@ -205,9 +206,11 @@ if (!$blog) {
                                                     <?php echo nl2br(htmlspecialchars($blog['paragraph2'])); ?>
                                                 </p>
                                             </div>
+                                            <!-- Image 2 -->
                                             <div class="thumb overflow-hidden has_fade_anim">
                                                 <img class="w-100" data-speed="0.8"
-                                                    src="<?php echo htmlspecialchars($blog['image2']); ?>" alt="image">
+                                                    src="<?php echo !empty($blog['image_url2']) ? htmlspecialchars($blog['image_url2']) : '/assets/imgs/default.jpg'; ?>"
+                                                    alt="Blog Image 2">
                                             </div>
                                             <div class="content-block">
                                                 <div class="text-wrapper">
