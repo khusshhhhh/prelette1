@@ -178,8 +178,9 @@ if (!$blog) {
                                 <div class="blog-thumb overflow-hidden">
                                     <img class="w-100" data-speed="0.8"
                                         src="<?php echo !empty($blog['image_url1']) ? htmlspecialchars($blog['image_url1']) : '/assets/imgs/default.jpg'; ?>"
-                                        alt="Blog Image 1">
+                                        alt="Blog Image">
                                 </div>
+
 
                                 <div class="blogdetails__wrapper">
                                     <div class="blogdetails-contentleft">
@@ -210,8 +211,9 @@ if (!$blog) {
                                             <div class="thumb overflow-hidden has_fade_anim">
                                                 <img class="w-100" data-speed="0.8"
                                                     src="<?php echo !empty($blog['image_url2']) ? htmlspecialchars($blog['image_url2']) : '/assets/imgs/default.jpg'; ?>"
-                                                    alt="Blog Image 2">
+                                                    alt="Blog Image">
                                             </div>
+
                                             <div class="content-block">
                                                 <div class="text-wrapper">
                                                     <p class="text has_fade_anim">
