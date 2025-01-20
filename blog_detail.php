@@ -20,6 +20,19 @@ if (!$blog) {
     echo "<h2>Sorry, this blog does not exist.</h2>";
     exit();
 }
+
+// Update view count
+$update_stmt = $conn->prepare("UPDATE blogs SET views = views + 1 WHERE seo_url = ?");
+$update_stmt->bind_param("s", $seo_url);
+$update_stmt->execute();
+
+// Fetch the updated view count
+$view_stmt = $conn->prepare("SELECT views FROM blogs WHERE seo_url = ?");
+$view_stmt->bind_param("s", $seo_url);
+$view_stmt->execute();
+$view_result = $view_stmt->get_result()->fetch_assoc();
+$view_count = $view_result['views'];
+
 ?>
 
 <!DOCTYPE html>
@@ -167,6 +180,7 @@ if (!$blog) {
                                             <li>
                                                 <span
                                                     class="number"><?php echo htmlspecialchars($blog['author']); ?></span>
+                                                <p class="text">Auther</p>
                                             </li>
                                             <li>
                                                 <p class="text"><?php echo $blog['date']; ?></p>
@@ -188,12 +202,8 @@ if (!$blog) {
                                             data-fade-from="left">
                                             <li>
                                                 <i class="fa-solid fa-chart-simple"></i>
-                                                <span>247 <br> Views </span>
+                                                <span><?php echo number_format($view_count); ?> <br> Views </span>
                                             </li>
-                                            <li><a href="www.instagram.com/_khusshhhhh_" target="_blank"
-                                                    rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                                            </li>
-                                            <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
 
