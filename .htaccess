@@ -14,4 +14,4 @@ RewriteRule ^([^/.]+)$ $1.html [NC,L]
 # SEO-friendly blog URLs (ONLY if they exist in the database)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9-]+)$ blog_detail.php?seo_url=$1 [L,QSA]
+RewriteRule ([a-zA-Z0-9-]+)$ blog_detail.php?seo_url=$1 [L,QSA]
