@@ -9,8 +9,8 @@ if (!isset($_GET['seo_url']) || empty($_GET['seo_url'])) {
 
 $seo_url = $_GET['seo_url'];
 
-// Fetch blog details from the new blogs_html table
-$stmt = $conn->prepare("SELECT * FROM blogs_html WHERE seo_url = ?");
+// Fetch blog details from the database
+$stmt = $conn->prepare("SELECT * FROM blogs WHERE seo_url = ?");
 $stmt->bind_param("s", $seo_url);
 $stmt->execute();
 $blog = $stmt->get_result()->fetch_assoc();
@@ -22,16 +22,17 @@ if (!$blog) {
 }
 
 // Update view count
-$update_stmt = $conn->prepare("UPDATE blogs_html SET views = views + 1 WHERE seo_url = ?");
+$update_stmt = $conn->prepare("UPDATE blogs SET views = views + 1 WHERE seo_url = ?");
 $update_stmt->bind_param("s", $seo_url);
 $update_stmt->execute();
 
 // Fetch the updated view count
-$view_stmt = $conn->prepare("SELECT views FROM blogs_html WHERE seo_url = ?");
+$view_stmt = $conn->prepare("SELECT views FROM blogs WHERE seo_url = ?");
 $view_stmt->bind_param("s", $seo_url);
 $view_stmt->execute();
 $view_result = $view_stmt->get_result()->fetch_assoc();
 $view_count = $view_result['views'];
+
 ?>
 
 <!DOCTYPE html>
@@ -181,10 +182,10 @@ $view_count = $view_result['views'];
                                             <li>
                                                 <span
                                                     class="number"><?php echo htmlspecialchars($blog['author']); ?></span>
-                                                <p class="text">Author</p>
+                                                <p class="text">Auther</p>
                                             </li>
                                             <li>
-                                                <p class="text"><?php echo htmlspecialchars($blog['date']); ?></p>
+                                                <p class="text"><?php echo $blog['date']; ?></p>
                                             </li>
                                         </ul>
                                     </div>
@@ -203,15 +204,101 @@ $view_count = $view_result['views'];
                                             data-fade-from="left">
                                             <li>
                                                 <i class="fa-solid fa-chart-simple"></i>
-                                                <span><?php echo number_format($blog['views']); ?> <br> Views </span>
+                                                <span><?php echo number_format($view_count); ?> <br> Views </span>
                                             </li>
                                         </ul>
                                     </div>
 
                                     <div class="blogdetails-contentright">
                                         <article class="blog-details-fullBody">
-                                            <!-- Executable HTML Content -->
-                                            <?php echo $blog['content']; // Directly executing stored HTML ?>
+
+                                            <!-- Heading 1 & Paragraph 1 -->
+                                            <?php if (!empty($blog['heading1'])): ?>
+                                                <h3 class="text has_fade_anim" style="margin-top: 30px; margin-bottom: 8px">
+                                                    <?php echo htmlspecialchars($blog['heading1']); ?>
+                                                </h3>
+                                            <?php endif; ?>
+                                            <p class="text has_fade_anim"
+                                                style="line-height: 1.65rem; color: #555; font-size: 20px;">
+                                                <?php echo nl2br(htmlspecialchars($blog['paragraph1'])); ?>
+                                            </p>
+
+                                            <!-- Heading 2 & Paragraph 2 -->
+                                            <?php if (!empty($blog['heading2'])): ?>
+                                                <h3 class="text has_fade_anim" style="margin-top: 30px; margin-bottom: 8px">
+                                                    <?php echo htmlspecialchars($blog['heading2']); ?>
+                                                </h3>
+                                            <?php endif; ?>
+                                            <p class="text has_fade_anim"
+                                                style="line-height: 1.65rem; color: #555; font-size: 20px;">
+                                                <?php echo nl2br(htmlspecialchars($blog['paragraph2'])); ?>
+                                            </p>
+
+                                            <!-- Image 2 -->
+                                            <div class="thumb overflow-hidden has_fade_anim">
+                                                <img class="w-100" data-speed="0.8"
+                                                    src="<?php echo !empty($blog['image_url2']) ? htmlspecialchars($blog['image_url2']) : '/assets/imgs/default.jpg'; ?>"
+                                                    alt="Blog Image">
+                                            </div>
+
+                                            <!-- Heading 3 & Paragraph 3 -->
+                                            <div class="content-block">
+                                                <?php if (!empty($blog['heading3'])): ?>
+                                                    <h3 class="text has_fade_anim"
+                                                        style="margin-top: 30px; margin-bottom: 8px">
+                                                        <?php echo htmlspecialchars($blog['heading3']); ?>
+                                                    </h3>
+                                                <?php endif; ?>
+                                                <p class="text has_fade_anim"
+                                                    style="line-height: 1.65rem; color: #555; font-size: 20px;">
+                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph3'])); ?>
+                                                </p>
+                                            </div>
+
+                                            <!-- Heading 4 & Paragraph 4 -->
+                                            <div class="content-block">
+                                                <?php if (!empty($blog['heading4'])): ?>
+                                                    <h3 class="text has_fade_anim"
+                                                        style="margin-top: 30px; margin-bottom: 8px">
+                                                        <?php echo htmlspecialchars($blog['heading4']); ?>
+                                                    </h3>
+                                                <?php endif; ?>
+                                                <p class="text has_fade_anim"
+                                                    style="line-height: 1.65rem; color: #555; font-size: 20px;">
+                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph4'])); ?>
+                                                </p>
+                                            </div>
+                                            <!-- Heading 5 & Paragraph 5 -->
+                                            <div class="content-block">
+                                                <?php if (!empty($blog['heading5'])): ?>
+                                                    <h3 class="text has_fade_anim"
+                                                        style="margin-top: 30px; margin-bottom: 8px">
+                                                        <?php echo htmlspecialchars($blog['heading5']); ?>
+                                                    </h3>
+                                                <?php endif; ?>
+                                                <p class="text has_fade_anim"
+                                                    style="line-height: 1.65rem; color: #555; font-size: 20px;">
+                                                    <?php echo nl2br(htmlspecialchars($blog['paragraph5'])); ?>
+                                                </p>
+                                            </div>
+                                            <!-- Image 3 (Last Image) -->
+                                            <div class="thumb overflow-hidden has_fade_anim">
+                                                <img class="w-100" data-speed="0.8"
+                                                    src="<?php echo !empty($blog['image_url3']) ? htmlspecialchars($blog['image_url3']) : '/assets/imgs/default.jpg'; ?>"
+                                                    alt="Blog Image">
+                                            </div>
+                                            <!-- Tags Section -->
+                                            <div class="tagswrap has_fade_anim">
+                                                <ul class="tags">
+                                                    <li><span>Tags:</span></li>
+                                                    <li><a href="#"><?php echo htmlspecialchars($blog['tag1']); ?></a>
+                                                    </li>
+                                                    <li><a href="#"><?php echo htmlspecialchars($blog['tag2']); ?></a>
+                                                    </li>
+                                                    <li><a href="#"><?php echo htmlspecialchars($blog['tag3']); ?></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </article>
                                     </div>
                                 </div>
