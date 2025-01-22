@@ -43,6 +43,8 @@ $view_count = $view_result['views'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo substr(htmlspecialchars($blog['paragraph1']), 0, 150) . '...'; ?>">
+    <meta name="keywords"
+        content="data agency Australia, data analytics Australia, business intelligence solutions, data visualization services, AI-driven insights, cloud data management, big data consulting, predictive analytics Australia, data science services, machine learning consulting, data warehousing Australia, real-time data analytics, enterprise data solutions, custom data dashboards, data-driven marketing Australia, ETL solutions, database management Australia, data automation services, AI-powered analytics, customer data strategy, financial data analysis, healthcare data solutions, retail analytics Australia, cloud computing for data, data governance Australia, advanced data modeling, IoT data analytics, government data consulting, market research analytics Australia">
     <title><?php echo htmlspecialchars($blog['title']); ?></title>
     <!-- Your existing CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
