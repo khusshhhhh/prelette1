@@ -2,7 +2,7 @@
 include 'crm_header.php';
 include 'db_connection.php';
 
-$result = $conn->query("SELECT * FROM blogs ORDER BY date DESC");
+$result = $conn->query("SELECT * FROM blogs_html ORDER BY date DESC");
 ?>
 
 <div class="container mt-4">
