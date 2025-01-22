@@ -27,7 +27,8 @@ $result = $conn->query("SELECT * FROM blogs_html ORDER BY date DESC");
                     <td>
                         <a href="edit_blog.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                         <a href="delete_blog.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
-                        <a href="<?php echo $row['seo_url']; ?>" class="btn btn-info btn-sm" target="_blank">View</a>
+                        <a href="blog_detail.php?seo_url=<?php echo urlencode($row['seo_url']); ?>"
+                            class="btn btn-info btn-sm" target="_blank">View</a>
                     </td>
                 </tr>
             <?php } ?>

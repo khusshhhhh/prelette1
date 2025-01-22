@@ -9,7 +9,7 @@ if (!isset($_GET['seo_url']) || empty($_GET['seo_url'])) {
 
 $seo_url = $_GET['seo_url'];
 
-// Fetch blog details from the new blogs_html table
+// Fetch blog details from blogs_html
 $stmt = $conn->prepare("SELECT * FROM blogs_html WHERE seo_url = ?");
 $stmt->bind_param("s", $seo_url);
 $stmt->execute();
@@ -26,7 +26,7 @@ $update_stmt = $conn->prepare("UPDATE blogs_html SET views = views + 1 WHERE seo
 $update_stmt->bind_param("s", $seo_url);
 $update_stmt->execute();
 
-// Fetch the updated view count
+// Fetch updated view count
 $view_stmt = $conn->prepare("SELECT views FROM blogs_html WHERE seo_url = ?");
 $view_stmt->bind_param("s", $seo_url);
 $view_stmt->execute();
@@ -41,11 +41,12 @@ $view_count = $view_result['views'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo substr(htmlspecialchars($blog['paragraph1']), 0, 150) . '...'; ?>">
-    <meta name="keywords"
-        content="data agency Australia, data analytics Australia, business intelligence solutions, data visualization services, AI-driven insights, cloud data management, big data consulting, predictive analytics Australia, data science services, machine learning consulting, data warehousing Australia, real-time data analytics, enterprise data solutions, custom data dashboards, data-driven marketing Australia, ETL solutions, database management Australia, data automation services, AI-powered analytics, customer data strategy, financial data analysis, healthcare data solutions, retail analytics Australia, cloud computing for data, data governance Australia, advanced data modeling, IoT data analytics, government data consulting, market research analytics Australia">
+    <meta name="description"
+        content="<?php echo htmlspecialchars(substr(strip_tags($blog['content']), 0, 150)) . '...'; ?>">
+    <meta name="keywords" content="blog, digital agency, web development, branding, marketing, UI/UX, web design">
     <title><?php echo htmlspecialchars($blog['title']); ?></title>
-    <!-- Your existing CSS -->
+
+    <!-- CSS Styles -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
@@ -165,21 +166,19 @@ $view_count = $view_result['views'];
                 <main>
 
                     <!-- Blog Details Section -->
-                    <section class="blog-details-area" style="margin-top: -50px;">
+                    <section class="blog-details-area">
                         <div class="container">
                             <div class="blog-details-area-inner">
                                 <div class="section-header">
                                     <div class="section-title-wrapper">
                                         <div class="title-wrapper">
-                                            <h1 class="section-title has_fade_anim" style="font-size: 60px;">
-                                                <?php echo htmlspecialchars($blog['title']); ?>
-                                            </h1>
+                                            <h1 class="section-title has_fade_anim">
+                                                <?php echo htmlspecialchars($blog['title']); ?></h1>
                                         </div>
                                     </div>
                                     <div class="meta-box has_fade_anim">
                                         <ul>
-                                            <li>
-                                                <span
+                                            <li><span
                                                     class="number"><?php echo htmlspecialchars($blog['author']); ?></span>
                                                 <p class="text">Author</p>
                                             </li>
@@ -190,7 +189,7 @@ $view_count = $view_result['views'];
                                     </div>
                                 </div>
 
-                                <!-- Image 1 -->
+                                <!-- Blog Image -->
                                 <div class="blog-thumb overflow-hidden">
                                     <img class="w-100" data-speed="0.8"
                                         src="<?php echo !empty($blog['image_url1']) ? htmlspecialchars($blog['image_url1']) : '/assets/imgs/default.jpg'; ?>"
@@ -199,19 +198,17 @@ $view_count = $view_result['views'];
 
                                 <div class="blogdetails__wrapper">
                                     <div class="blogdetails-contentleft">
-                                        <ul class="blogdetails-overview dark-overview has_fade_anim"
-                                            data-fade-from="left">
+                                        <ul class="blogdetails-overview dark-overview has_fade_anim">
                                             <li>
                                                 <i class="fa-solid fa-chart-simple"></i>
-                                                <span><?php echo number_format($blog['views']); ?> <br> Views </span>
+                                                <span><?php echo number_format($view_count); ?> <br> Views </span>
                                             </li>
                                         </ul>
                                     </div>
 
                                     <div class="blogdetails-contentright">
                                         <article class="blog-details-fullBody">
-                                            <!-- Executable HTML Content -->
-                                            <?php echo $blog['content']; // Directly executing stored HTML ?>
+                                            <?php echo $blog['content']; ?>
                                         </article>
                                     </div>
                                 </div>

@@ -2,9 +2,8 @@
 include 'crm_header.php';
 include 'db_connection.php';
 
-// Get the blog ID from URL
 if (!isset($_GET['id'])) {
-        header("Location: blog_list.php");
+        header("Location: view_blog.php");
         exit();
 }
 
@@ -14,20 +13,14 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 $blog = $stmt->get_result()->fetch_assoc();
 
-// Handle Form Submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = $_POST['title'];
         $author = $_POST['author'];
         $date = $_POST['date'];
         $content = $_POST['content'];
-
-        // Use existing image URL if no new one is provided
         $image_url1 = !empty($_POST["image_url1"]) ? $_POST["image_url1"] : $blog['image_url1'];
-
-        // Generate SEO-friendly URL
         $seo_url = strtolower(str_replace(" ", "-", preg_replace("/[^a-zA-Z0-9\s]/", "", $title)));
 
-        // Update the blog entry
         $stmt = $conn->prepare("UPDATE blogs_html 
                             SET title=?, author=?, date=?, content=?, image_url1=?, seo_url=? 
                             WHERE id=?");
@@ -48,18 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<div class='alert alert-danger'>$error</div>"; ?>
 
         <form method="POST">
-                <div class="mb-3">
-                        <input type="text" name="title" class="form-control"
-                                value="<?php echo htmlspecialchars($blog['title']); ?>" required>
-                </div>
-                <div class="mb-3">
-                        <input type="text" name="author" class="form-control"
-                                value="<?php echo htmlspecialchars($blog['author']); ?>" required>
-                </div>
-                <div class="mb-3">
-                        <input type="date" name="date" class="form-control" value="<?php echo $blog['date']; ?>"
-                                required>
-                </div>
+                <div class="mb-3"><input type="text" name="title" class="form-control"
+                                value="<?php echo htmlspecialchars($blog['title']); ?>" required></div>
+                <div class="mb-3"><input type="text" name="author" class="form-control"
+                                value="<?php echo htmlspecialchars($blog['author']); ?>" required></div>
+                <div class="mb-3"><input type="date" name="date" class="form-control"
+                                value="<?php echo $blog['date']; ?>" required></div>
 
                 <div class="mb-3">
                         <label>Current Image:</label><br>
