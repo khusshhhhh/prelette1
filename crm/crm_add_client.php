@@ -8,9 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST['phone'];
     $company = $_POST['company'];
     $address = $_POST['address'];
+    $note = $_POST['note'];
 
-    $stmt = $conn->prepare("INSERT INTO clients (name, email, phone, company, address) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $name, $email, $phone, $company, $address);
+    $stmt = $conn->prepare("INSERT INTO clients (name, email, phone, company, address, note) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $name, $email, $phone, $company, $address, $note);
 
     if ($stmt->execute()) {
         header("Location: crm_clients.php?msg=Client added successfully");
@@ -34,22 +35,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Phone</label>
-            <input type="text" name="phone" class="form-control" required>
+            <input type="text" name="phone" class="form-control">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Company</label>
-            <input type="text" name="company" class="form-control" required>
+            <input type="text" name="company" class="form-control">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Address</label>
-            <textarea name="address" class="form-control" required></textarea>
+            <textarea name="address" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Note</label>
+            <textarea name="note" class="form-control"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Add Client</button>

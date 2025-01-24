@@ -48,6 +48,10 @@ if (!$client) {
             <th>Company</th>
             <td><?php echo htmlspecialchars($client['company']); ?></td>
         </tr>
+        <tr>
+            <th>Note</th>
+            <td><?php echo htmlspecialchars($client['note']); ?></td>
+        </tr>
     </table>
 
     <h4 class="mt-4">Payment History</h4>
