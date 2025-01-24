@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $note = $_POST['note'];
 
     $stmt = $conn->prepare("INSERT INTO clients (name, email, phone, company, address, note) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $name, $email, $phone, $company, $address, $note);
+    $stmt->bind_param("ssssss", $name, $email, $phone, $company, $address, $note);
 
     if ($stmt->execute()) {
         header("Location: crm_clients.php?msg=Client added successfully");
