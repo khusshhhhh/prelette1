@@ -8727,7 +8727,7 @@ section {
   padding-bottom: 79px;
   margin-top: 60px;
   display: grid;
-  gap: 30px 120px;
+  gap: 30px 220px;
   grid-template-columns: 190px 190px 1fr;
 }
 @media only screen and (max-width: 1919px) {
