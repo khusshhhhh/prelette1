@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = $_POST['address'];
     $note = $_POST['note'];
 
-    $stmt = $conn->prepare("INSERT INTO clients (name, email, phone, company, address, note) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO clients (name, email, phone, company, address, note) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $name, $email, $phone, $company, $address, $note);
 
     if ($stmt->execute()) {
