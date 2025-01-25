@@ -3,15 +3,12 @@ session_start();
 include 'db_connection.php';
 include 'crm_header.php';
 
-// Check if client ID is provided in the URL
-if (!isset($_GET['id']) || empty($_GET['id'])) {
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: crm_clients.php");
     exit();
 }
 
 $client_id = intval($_GET['id']);
-
-// Fetch client details
 $stmt = $conn->prepare("SELECT * FROM clients WHERE id = ?");
 $stmt->bind_param("i", $client_id);
 $stmt->execute();
@@ -26,7 +23,6 @@ if (!$client) {
 
 <div class="container mt-5">
     <h2 class="mb-4">Client Details</h2>
-
     <table class="table table-bordered">
         <tr>
             <th>Client ID</th>
@@ -69,7 +65,6 @@ if (!$client) {
             $payment_stmt->bind_param("i", $client_id);
             $payment_stmt->execute();
             $payment_result = $payment_stmt->get_result();
-
             if ($payment_result->num_rows > 0) {
                 while ($payment = $payment_result->fetch_assoc()) {
                     echo "<tr>
@@ -101,7 +96,6 @@ if (!$client) {
             $expense_stmt->bind_param("i", $client_id);
             $expense_stmt->execute();
             $expense_result = $expense_stmt->get_result();
-
             if ($expense_result->num_rows > 0) {
                 while ($expense = $expense_result->fetch_assoc()) {
                     echo "<tr>
