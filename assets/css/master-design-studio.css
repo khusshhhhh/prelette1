@@ -9314,6 +9314,25 @@ section {
     font-size: 22px;
   }
 }
+
+@media (max-width: 991px) {
+  .prooject-area .prooject-area-inner .big-title a h1 {
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .prooject-area .prooject-area-inner .big-title a h1 {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 450px) {
+  .prooject-area .prooject-area-inner .big-title a h1 {
+    font-size: 60px;
+  }
+}
+
 .prooject-box .title a:hover {
   color: var(--white);
 }
