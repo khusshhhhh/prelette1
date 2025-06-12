@@ -7711,6 +7711,30 @@ section {
   width: 400px;
   height: 400px;
 }
+
+.btn-hover-bgchange {
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+.btn-hover-bgchange span {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  border-radius: 100%;
+  transition: all 1s;
+  background-color: var(--primary);
+  transform: translate(-50%, -50%);
+}
+.btn-hover-bgchange:hover span {
+  width: 400px;
+  height: 400px;
+}
+
 .text-slider-active .swiper-slide {
   width: auto;
 }
